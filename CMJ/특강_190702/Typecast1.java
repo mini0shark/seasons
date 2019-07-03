@@ -1,4 +1,4 @@
-package 특강_190702;
+package CMJ.특강_190702;
 
 public class Typecast1 {
 	public static void main(String[] args) {

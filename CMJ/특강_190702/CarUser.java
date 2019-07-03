@@ -1,4 +1,4 @@
-package 특강_190702;
+package CMJ.특강_190702;
 
 public class CarUser {
 	public static void main(String[] args) {
