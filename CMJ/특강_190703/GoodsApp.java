@@ -1,4 +1,4 @@
-package 특강_190703;
+package CMJ.특강_190703;
 
 public class GoodsApp {
 	public static void main(String[] args) {

@@ -1,8 +1,15 @@
-package 특강_190703;
+package CMJ.특강_190703;
 
 public class Car {
 	String name;
 	int speed;
+	static int numberOfCars;
+	
+	public Car() {
+		name = "MyCar";
+		speed = 0;
+		numberOfCars++;
+	}
 	
 	public Car(String name, int speed) {
 		//this(name); --> 생성자 호출
