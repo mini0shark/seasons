@@ -9,6 +9,7 @@ public class ShapeTest {
 		p.setX(5);
 		p.setY(10);
 		
-		p.show();
+		p.show(true);
+		p.show(false);
 	}
 }
