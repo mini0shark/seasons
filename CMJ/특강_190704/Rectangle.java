@@ -1,6 +1,6 @@
 package CMJ.Æ¯°­_190704;
 
-public class Rectangle extends Shape {
+public class Rectangle extends Shape implements Drawable {
 	public Rectangle(int w, int h) {
 		this.w = w;
 		this.h = h;
@@ -9,5 +9,10 @@ public class Rectangle extends Shape {
 	public double calculateArea() {
 		System.out.println("Rectangle.calculateArea");
 		return (double)w * h;
+	}
+	
+	@Override
+	public void draw() {
+		System.out.println("Rectangle Draw");
 	}
 }

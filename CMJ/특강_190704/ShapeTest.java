@@ -10,5 +10,16 @@ public class ShapeTest {
 		
 		Shape T = new Triangle(3, 5);
 		System.out.println(T.calculateArea());
+		
+		System.out.println();
+		
+		Drawable D = (Drawable)C;
+		D.draw();
+		
+		D = (Drawable)R;
+		D.draw();
+		
+		D = (Drawable)T;
+		D.draw();
 	}
 }
