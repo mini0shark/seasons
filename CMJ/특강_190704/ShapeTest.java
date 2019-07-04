@@ -1,0 +1,11 @@
+package CMJ.Æ¯°­_190704;
+
+public class ShapeTest {
+	public static void main(String[] args) {
+		Shape C = new Circle(5);
+		System.out.println(C.calculateArea());
+		
+		Shape R = new Rectangle(3, 4);
+		System.out.println(R.calculateArea());
+	}
+}
