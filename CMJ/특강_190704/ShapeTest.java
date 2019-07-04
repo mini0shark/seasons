@@ -7,5 +7,8 @@ public class ShapeTest {
 		
 		Shape R = new Rectangle(3, 4);
 		System.out.println(R.calculateArea());
+		
+		Shape T = new Triangle(3, 5);
+		System.out.println(T.calculateArea());
 	}
 }
