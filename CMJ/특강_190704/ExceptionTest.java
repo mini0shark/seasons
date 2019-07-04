@@ -24,6 +24,10 @@ public class ExceptionTest {
 			System.out.println("ArithmeticException 실행");
 			a = 1;
 			b = 100 / a;
+		} catch (Exception e) {
+			System.out.println("One more catch block");
+		} finally {
+			System.out.println("반드시 실행되는 블럭");
 		}
 		
 		System.out.println("Some more codes after try-catch");
