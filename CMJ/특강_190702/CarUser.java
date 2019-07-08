@@ -1,13 +1,13 @@
-package CMJ.Æ¯°­_190702;
+package CMJ.íŠ¹ê°•_190702;
 
 public class CarUser {
 	public static void main(String[] args) {
-		//Car¸¦ ¾²°í ½Í´Ù¸é Car¸¦ »ı¼ºÇØ¾ß ÇÑ´Ù.
-		//»ı¼ºÇÏ´Â ¸í·É¾î´Â new
+		//Carë¥¼ ì“°ê³  ì‹¶ë‹¤ë©´ Carë¥¼ ìƒì„±í•´ì•¼ í•œë‹¤.
+		//ìƒì„±í•˜ëŠ” ëª…ë ¹ì–´ëŠ” new
 		Car car = new Car();
 		
-		//¾Ë¸Â´Â ¸Å°³º¯¼ö¸¦ ³Ö¾îÁØ´Ù.
-		car.setName("¾Æ¿ìµğ");
+		//ì•Œë§ëŠ” ë§¤ê°œë³€ìˆ˜ë¥¼ ë„£ì–´ì¤€ë‹¤.
+		car.setName("ì•„ìš°ë””");
 		System.out.println(car.getName());
 	}
 }

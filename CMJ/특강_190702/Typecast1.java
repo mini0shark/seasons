@@ -1,4 +1,4 @@
-package CMJ.Æ¯°­_190702;
+package CMJ.íŠ¹ê°•_190702;
 
 public class Typecast1 {
 	public static void main(String[] args) {
