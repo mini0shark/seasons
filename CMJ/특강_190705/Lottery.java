@@ -1,4 +1,4 @@
-package CMJ.Æ¯°­_190705;
+package CMJ.íŠ¹ê°•_190705;
 
 import java.util.Scanner;
 
@@ -18,7 +18,7 @@ public class Lottery {
 			do {
 				arr[i] = sc.nextInt();
 				if(arr[i] < 0 || arr[i] > 45) {
-					System.out.println("Àß¸øÀÔ·Â");
+					System.out.println("ìž˜ëª» ìž…ë ¥");
 				}
 			} while(arr[i] < 0 || arr[i] > 45);
 		}

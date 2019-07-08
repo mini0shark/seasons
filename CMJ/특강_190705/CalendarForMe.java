@@ -1,4 +1,4 @@
-package CMJ.Æ¯°­_190705;
+package CMJ.íŠ¹ê°•_190705;
 
 import java.util.Calendar;
 
@@ -16,16 +16,17 @@ public class CalendarForMe {
 		c = Calendar.getInstance();
 		c.set(year, month - 1, 1);
 	}
+	
 	public void printCalendar() {
-		System.out.println(year + "³â " + month + "¿ù");
-		System.out.println("ÀÏ\t¿ù\tÈ­\t¼ö\t¸ñ\t±İ\tÅä");
+		System.out.println(year + "ë…„ " + month + "ì›”");
+		System.out.println("ì¼\tì›”\tí™”\tìˆ˜\tëª©\tê¸ˆ\tí† ");
 		
 		startDay = c.get(Calendar.DAY_OF_WEEK);
 		endDay = c.getActualMaximum(Calendar.DAY_OF_MONTH);
 		
 		for(int i = 1;i < startDay;i++) {
 			System.out.print("\t");
-		} // ½ÃÀÛÇÏ´Â ¿äÀÏ±îÁö °ø¹é Ãâ·Â
+		}
 
 		for(int i = 1;i <= endDay;i++) {
 			System.out.print(i + "\t");
