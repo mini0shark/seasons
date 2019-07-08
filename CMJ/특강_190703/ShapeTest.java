@@ -1,4 +1,4 @@
-package CMJ.Æ¯°­_190703;
+package CMJ.íŠ¹ê°•_190703;
 
 public class ShapeTest {
 	public static void main(String[] args) {

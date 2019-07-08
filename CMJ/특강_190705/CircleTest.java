@@ -1,4 +1,4 @@
-package CMJ.Æ¯°­_190705;
+package CMJ.íŠ¹ê°•_190705;
 
 public class CircleTest {
 	public static void main(String[] args) {
@@ -6,9 +6,9 @@ public class CircleTest {
 		Circle secondCircle = new Circle(3, 2, 5);
 		
 		if(firstCircle.equals(secondCircle)) {
-			System.out.println("°°´Ù");
+			System.out.println("ê°™ë‹¤");
 		} else {
-			System.out.println("´Ù¸£´Ù");
+			System.out.println("ë‹¤ë¥´ë‹¤");
 		}
 	}
 }

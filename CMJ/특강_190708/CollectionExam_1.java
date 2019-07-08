@@ -1,10 +1,10 @@
-package CMJ.Æ¯°­_190708;
+package CMJ.íŠ¹ê°•_190708;
 
 import java.util.ArrayList;
 
 public class CollectionExam_1 {
 	public static void main(String[] args) {
-		// ¹è¿­ (°íÁ¤±æÀÌ ÀÚ·á±¸Á¶)
+		// ë°°ì—´ (ê³ ì •ê¸¸ì´ ìë£Œêµ¬ì¡°)
 		String[] names = new String[3];
 		
 		names[0] = "Chung";
@@ -15,7 +15,7 @@ public class CollectionExam_1 {
 			System.out.print(name + "\t");
 		}
 		
-		// ArrayList (°¡º¯±æÀÌ ÀÚ·á±¸Á¶)
+		// ArrayList (ê°€ë³€ê¸¸ì´ ìë£Œêµ¬ì¡°)
 		ArrayList<String> nameList = new ArrayList<String>();
 		
 		nameList.add("Chung");

@@ -1,4 +1,4 @@
-package CMJ.Æ¯°­_190704;
+package CMJ.íŠ¹ê°•_190704;
 
 public class Triangle extends Shape implements Drawable {
 	public Triangle(int t, int h) {

@@ -1,8 +1,8 @@
-package CMJ.Ư��_190704;
+package CMJ.특강_190704;
 
 public class BankTest {
 	public static void main(String[] args) {
-		Bank bankAccount = new Bank(1, "ȫ�浿", 10000);
+		Bank bankAccount = new Bank(1, "홍길동", 10000);
 		
 		try {
 			bankAccount.deposit(4000);

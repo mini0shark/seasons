@@ -1,4 +1,4 @@
-package CMJ.Æ¯°­_190703;
+package CMJ.íŠ¹ê°•_190703;
 
 import org.omg.Messaging.SyncScopeHelper;
 
@@ -15,61 +15,61 @@ public class TV {
 	
 	public void channelUp() {
 		this.channel++;
-		System.out.println("Ã¤³ÎÀ» ¿Ã¸³´Ï´Ù.");
+		System.out.println("ì±„ë„ì„ ì˜¬ë¦½ë‹ˆë‹¤.");
 	}
 	
 	public void channelDown() {
 		this.channel--;
-		System.out.println("Ã¤³ÎÀ» ³»¸³´Ï´Ù.");
+		System.out.println("ì±„ë„ì„ ë‚´ë¦½ë‹ˆë‹¤.");
 	}
 	
 	public void volumeUp() {
 		if(this.volume > 20) {
-			System.out.println("º¼·ý ÃÖ´ëÄ¡");
+			System.out.println("ë³¼ë¥¨ ìµœëŒ€ì¹˜");
 			this.volume = 20;
 		} else {
 			this.volume++;
-			System.out.println("º¼·ý: " + volume);
+			System.out.println("ë³¼ë¥¨: " + volume);
 		}
 	}
 	
 	public void volumeDown() {
 		if(this.volume < 0) {
-			System.out.println("º¼·ý ÃÖ¼ÒÄ¡");
+			System.out.println("ë³¼ë¥¨ ìµœì†Œì¹˜");
 			this.volume = 0;
 		} else {
 			this.volume--;
-			System.out.println("º¼·ý: " + volume);
+			System.out.println("ë³¼ë¥¨: " + volume);
 		}
 	}
 	
 	public void powerOn() {
-		System.out.println("TV°¡ ÄÑÁý´Ï´Ù.");
+		System.out.println("TVê°€ ì¼œì§‘ë‹ˆë‹¤.");
 		this.power = true;
 	}
 	
 	public void powerOff() {
-		System.out.println("TV°¡ ²¨Áý´Ï´Ù.");
+		System.out.println("TVê°€ êº¼ì§‘ë‹ˆë‹¤.");
 		this.power = false;
 	}
 	
 	public void setChannel(int channel) {
 		this.channel = channel;
-		System.out.println(channel + "¹ø Ã¤³ÎÀÔ´Ï´Ù.");
+		System.out.println(channel + "ë²ˆ ì±„ë„ìž…ë‹ˆë‹¤.");
 	}
 	
 	public int getChannel() {
-		System.out.print("Ã¤³Î: ");
+		System.out.print("ì±„ë„: ");
 		return this.channel;
 	}
 	
 	public boolean isPower() {
-		System.out.print("Àü¿ø : ");
+		System.out.print("ì „ì› : ");
 		return this.power;
 	}
 	
 	public int getVolume() {
-		System.out.print("º¼·ý: ");
+		System.out.print("ë³¼ë¥¨: ");
 		return this.volume;
 	}
 }

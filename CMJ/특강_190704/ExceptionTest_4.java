@@ -1,8 +1,8 @@
-package CMJ.Æ¯°­_190704;
+package CMJ.íŠ¹ê°•_190704;
 
 public class ExceptionTest_4 {
 	public static int scoreSum(int testScore, int homeworkScore) throws MyException {
-		// »ç¿ëÀÚ°¡ Á¶°Ç¿¡ ¸ÂÁö ¾Ê´Â °ªÀÌ µé¾î¿À¸é ¿¹¿Ü¸¦ ¹ß»ı½ÃÅ²´Ù.
+		// ì‚¬ìš©ìê°€ ì¡°ê±´ì— ë§ì§€ ì•ŠëŠ” ê°’ì´ ë“¤ì–´ì˜¤ë©´ ì˜ˆì™¸ë¥¼ ë°œìƒì‹œí‚¨ë‹¤.
 		if (testScore < 1 || testScore > 50)
 			throw new MyException();
 
@@ -18,12 +18,12 @@ public class ExceptionTest_4 {
 			resultScore = scoreSum(testScore, homeworkScore);
 		} catch (Exception e) {
 			System.out.println(e);
-			System.out.println("testScore ´Â 50Á¡ ÀÌ»óÀÇ °ªÀÌ µé¾î¿Ã ¼ö ¾ø½À´Ï´Ù.");
+			System.out.println("testScore ëŠ” 50ì  ì´ìƒì˜ ê°’ì´ ë“¤ì–´ì˜¬ ìˆ˜ ì—†ìŠµë‹ˆë‹¤.");
 		}
 		
-		System.out.println("ÇĞ»ıÀÇ score´Â " + resultScore + "Á¡ÀÔ´Ï´Ù.");
+		System.out.println("í•™ìƒì˜ scoreëŠ” " + resultScore + "ì ì…ë‹ˆë‹¤.");
 	}
 	
-	// ¿¹¿Ü °´Ã¼¸¦ »ç¿ëÀÚ°¡ Á¤ÀÇÇØ¼­ »ç¿ë °¡´É
-	// ÇÁ·ÎÁ§Æ® ÀÚÃ¼¿¡¼­ ¿¹¿Ü °´Ã¼ Á¤ÀÇ °¡´É
+	// ì˜ˆì™¸ ê°ì²´ë¥¼ ì‚¬ìš©ìê°€ ì •ì˜í•´ì„œ ì‚¬ìš© ê°€ëŠ¥
+	// í”„ë¡œì íŠ¸ ìì²´ì—ì„œ ì˜ˆì™¸ ê°ì²´ ì •ì˜ ê°€ëŠ¥
 }

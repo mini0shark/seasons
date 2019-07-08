@@ -1,4 +1,4 @@
-package CMJ.Æ¯°­_190703;
+package CMJ.íŠ¹ê°•_190703;
 
 public class Car {
 	String name;
@@ -12,39 +12,39 @@ public class Car {
 	}
 	
 	public Car(String name, int speed) {
-		//this(name); --> »ı¼ºÀÚ È£Ãâ
-		System.out.println("Car(String name, int speed) ½ÇÇà");
+		//this(name); --> ìƒì„±ì í˜¸ì¶œ
+		System.out.println("Car(String name, int speed) ì‹¤í–‰");
 		this.name = name;
 		this.speed = speed;
 	}
 	
 	public Car(String name) {
-		System.out.println("Car(String name) ½ÇÇà");
+		System.out.println("Car(String name) ì‹¤í–‰");
 		this.name = name;
 	}
 	
-	//¸Ş¼Òµå¸¦ Á¤ÀÇÇÏ´Â ¹æ¹ı
-	//Á¢±ÙÁ¦ÇÑÀÚ ¸®ÅÏÅ¸ÀÔ ¸Ş¼Òµå¸í(¸Å°³º¯¼öµé...)
+	//ë©”ì†Œë“œë¥¼ ì •ì˜í•˜ëŠ” ë°©ë²•
+	//ì ‘ê·¼ì œí•œì ë¦¬í„´íƒ€ì… ë©”ì†Œë“œëª…(ë§¤ê°œë³€ìˆ˜ë“¤...)
 	
-	//this -> ³» Å¬·¡½ºÀÇ ÇÊµå¸¦ °¡¸®Å³ ¶§ ¾´´Ù.
-	//super -> ºÎ¸ğ Å¬·¡½º¸¦ °¡¸®Å²´Ù.
+	//this -> ë‚´ í´ë˜ìŠ¤ì˜ í•„ë“œë¥¼ ê°€ë¦¬í‚¬ ë•Œ ì“´ë‹¤.
+	//super -> ë¶€ëª¨ í´ë˜ìŠ¤ë¥¼ ê°€ë¦¬í‚¨ë‹¤.
 	
-	//ÀÌ¸§À» Áö¾îÁÖ´Â ¸Ş¼Òµå
+	//ì´ë¦„ì„ ì§€ì–´ì£¼ëŠ” ë©”ì†Œë“œ
 	public void setName(String name) {
 		this.name = name;
 	}
 	
-	//ÀÌ¸§À» ¹Ş´Â ¸Ş¼Òµå
+	//ì´ë¦„ì„ ë°›ëŠ” ë©”ì†Œë“œ
 	public String getName() {
 		return this.name;
 	}
 	
-	//¼Óµµ¸¦ Áö¾îÁÖ´Â ¸Ş¼Òµå
+	//ì†ë„ë¥¼ ì§€ì–´ì£¼ëŠ” ë©”ì†Œë“œ
 	public void setSpeed(int speed) {
 		this.speed = speed;
 	}
 	
-	//Çö ¼Óµµ¸¦ ¹Ş´Â ¸Ş¼Òµå
+	//í˜„ ì†ë„ë¥¼ ë°›ëŠ” ë©”ì†Œë“œ
 	public int getSpeed() {
 		return this.speed;
 	}

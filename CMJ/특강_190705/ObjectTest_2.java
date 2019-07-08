@@ -1,4 +1,4 @@
-package CMJ.Æ¯°­_190705;
+package CMJ.íŠ¹ê°•_190705;
 
 public class ObjectTest_2 {
 	public static void main(String[] args) {
@@ -7,12 +7,12 @@ public class ObjectTest_2 {
 		String str3 = "abc";
 		
 		if(str1 == str2)
-			System.out.println("str1°ú str2´Â °°½À´Ï´Ù.");
+			System.out.println("str1ê³¼ str2ëŠ” ê°™ìŠµë‹ˆë‹¤.");
 		
 		if(str2 == str3)
-			System.out.println("str2¿Í str3´Â °°½À´Ï´Ù.");
+			System.out.println("str2ì™€ str3ëŠ” ê°™ìŠµë‹ˆë‹¤.");
 		
 		if(str3 == str1)
-			System.out.println("str3¿Í str1Àº °°½À´Ï´Ù.");
+			System.out.println("str3ì™€ str1ì€ ê°™ìŠµë‹ˆë‹¤.");
 	}
 }

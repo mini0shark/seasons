@@ -1,4 +1,4 @@
-package CMJ.Æ¯°­_190705;
+package CMJ.íŠ¹ê°•_190705;
 
 import java.util.ArrayList;
 import java.util.Random;

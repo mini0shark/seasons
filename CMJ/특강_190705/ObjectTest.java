@@ -1,4 +1,4 @@
-package CMJ.Æ¯°­_190705;
+package CMJ.íŠ¹ê°•_190705;
 
 public class ObjectTest {
 	public static void main(String[] args) {
@@ -6,22 +6,22 @@ public class ObjectTest {
 		
 		System.out.println(point.getClass().getName());
 		System.out.println(point.toString());
-		System.out.println(point); // point.toString()°ú °á°ú°¡ °°´Ù.
+		System.out.println(point); // point.toString()ê³¼ ê²°ê³¼ê°€ ê°™ë‹¤.
 		System.out.println(point.equals(point));
 		System.out.println(point.hashCode());
 		
 		Point secondPoint = new Point(2, 3);
 		
 		if(point == secondPoint) {
-			System.out.println("°°´Ù");
+			System.out.println("ê°™ë‹¤");
 		} else {
-			System.out.println("´Ù¸£´Ù");
+			System.out.println("ë‹¤ë¥´ë‹¤");
 		}
 		
 		if(point.equals(secondPoint)) {
-			System.out.println("°°´Ù");
+			System.out.println("ê°™ë‹¤");
 		} else {
-			System.out.println("´Ù¸£´Ù");
+			System.out.println("ë‹¤ë¥´ë‹¤");
 		}
 		
 		String str = new String("abc");
@@ -31,9 +31,9 @@ public class ObjectTest {
 		String str2 = new String("abc");
 		
 		if(str == str2) {
-			System.out.println("°°´Ù");
+			System.out.println("ê°™ë‹¤");
 		} else {
-			System.out.println("´Ù¸£´Ù");
+			System.out.println("ë‹¤ë¥´ë‹¤");
 		}
 		
 		if(str.equals(str2)) {
@@ -46,6 +46,6 @@ public class ObjectTest {
 			System.out.println("ok");
 		
 		if(point.equals(secondPoint))
-			System.out.println("point¿Í secondPoint´Â °°´Ù.");
+			System.out.println("pointì™€ secondPointëŠ” ê°™ë‹¤.");
 	}
 }

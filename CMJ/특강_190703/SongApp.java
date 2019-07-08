@@ -1,8 +1,8 @@
-package CMJ.Æ¯°­_190703;
+package CMJ.íŠ¹ê°•_190703;
 
 public class SongApp {
 	public static void main(String[] args) {
-		Song song = new Song("ÁÁÀº ³¯", "¾ÆÀÌÀ¯", "¾Ù¹ü", "ÀÛ°î°¡", 2019, 3);
+		Song song = new Song("ì¢‹ì€ ë‚ ", "ì•„ì´ìœ ", "ì•¨ë²”", "ì‘ê³¡ê°€", 2019, 3);
 		
 		song.show();
 	}

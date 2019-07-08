@@ -1,34 +1,34 @@
-package CMJ.Æ¯°­_190705;
+package CMJ.íŠ¹ê°•_190705;
 
 public class StringTest {
 	public static void main(String[] args) {
 		String a = new String(" abcd");
 		String b = new String(",efg");
 		
-		// ¹®ÀÚ¿­ ¿¬°á
+		// ë¬¸ìì—´ ì—°ê²°
 		a = a.concat(b);
 		System.out.println(a);
 		
-		// °ø¹é Á¦°Å
+		// ê³µë°± ì œê±°
 		a = a.trim();
 		System.out.println("----" + a + "----");
 		
-		// ¹®ÀÚ¿­ ´ëÄ¡
+		// ë¬¸ìì—´ ëŒ€ì¹˜
 		a = a.replace("ab",  "12");
 		System.out.println(a);
 		
-		// ¹®ÀÚ¿­ ºĞ¸®
+		// ë¬¸ìì—´ ë¶„ë¦¬
 		String s[] = a.split(",");
 		for(int i = 0;i < s.length;i++) {
 			System.out.print(s[i]);
 		}
 		System.out.println();
 		
-		// ¼­ºê½ºÆ®¸µ
+		// ì„œë¸ŒìŠ¤íŠ¸ë§
 		a = a.substring(3);
 		System.out.println(a);
 		
-		// ¹®ÀÚ¿­ÀÇ ¹®ÀÚ
+		// ë¬¸ìì—´ì˜ ë¬¸ì
 		char c = a.charAt(2);
 		System.out.println(c);
 	}

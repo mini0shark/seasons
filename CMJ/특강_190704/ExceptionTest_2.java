@@ -1,4 +1,4 @@
-package CMJ.Æ¯°­_190704;
+package CMJ.íŠ¹ê°•_190704;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -11,7 +11,7 @@ public class ExceptionTest_2 {
 		
 		int a = 0;
 		System.out.println(1 / a);
-		// ExceptionÀÌ ÀÏ¾î³¯ °ÍÀ» ¾ËÁö¸¸ Áö±İ ´ë³õ°í Ç¥½Ã°¡ µÇÁö ¾Ê´Â´Ù.
+		// Exceptionì´ ì¼ì–´ë‚  ê²ƒì„ ì•Œì§€ë§Œ ì§€ê¸ˆ ëŒ€ë†“ê³  í‘œì‹œê°€ ë˜ì§€ ì•ŠëŠ”ë‹¤.
 		
 		try {
 			FileInputStream fis = new FileInputStream("test.txt");

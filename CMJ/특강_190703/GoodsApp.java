@@ -1,11 +1,11 @@
-package CMJ.Æ¯°­_190703;
+package CMJ.íŠ¹ê°•_190703;
 
 public class GoodsApp {
 	public static void main(String[] args) {
 		Goods camera = new Goods("Nikon", 400000, 30, 50);
-		System.out.println("»óÇ°ÀÌ¸§: " + camera.getName());
-		System.out.println("»óÇ°°¡°İ: " + camera.getPrice());
-		System.out.println("Àç°í¼ö·®: " + camera.getCountStock());
-		System.out.println("ÆÈ¸°¼ö·®: " + camera.getCountSold());
+		System.out.println("ìƒí’ˆì´ë¦„: " + camera.getName());
+		System.out.println("ìƒí’ˆê°€ê²©: " + camera.getPrice());
+		System.out.println("ì¬ê³ ìˆ˜ëŸ‰: " + camera.getCountStock());
+		System.out.println("íŒ”ë¦°ìˆ˜ëŸ‰: " + camera.getCountSold());
 	}
 }

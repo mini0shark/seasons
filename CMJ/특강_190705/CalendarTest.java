@@ -1,4 +1,4 @@
-package CMJ.Æ¯°­_190705;
+package CMJ.íŠ¹ê°•_190705;
 
 import java.text.DateFormat;
 import java.util.Calendar;
@@ -24,9 +24,9 @@ public class CalendarTest {
 	}
 	
 	public static void printDate(Calendar calendar) {
-		System.out.println(calendar.get(Calendar.YEAR) + "³â " + (calendar.get(Calendar.MONTH) + 1) + "¿ù " + 
-				calendar.get(Calendar.DATE) + "ÀÏ " + (calendar.get(Calendar.AM_PM) == 0 ? "¿ÀÀü " : "¿ÀÈÄ ") + 
-				calendar.get(Calendar.HOUR) + "½Ã " + calendar.get(Calendar.MINUTE) + "ºĞ " + 
-				calendar.get(Calendar.SECOND) + "ÃÊ");
+		System.out.println(calendar.get(Calendar.YEAR) + "ë…„ " + (calendar.get(Calendar.MONTH) + 1) + "ì›” " + 
+				calendar.get(Calendar.DATE) + "ì¼ " + (calendar.get(Calendar.AM_PM) == 0 ? "ì˜¤ì „ " : "ì˜¤í›„ ") + 
+				calendar.get(Calendar.HOUR) + "ì‹œ " + calendar.get(Calendar.MINUTE) + "ë¶„ " + 
+				calendar.get(Calendar.SECOND) + "ì´ˆ");
 	}
 }

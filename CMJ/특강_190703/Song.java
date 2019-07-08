@@ -1,4 +1,4 @@
-package CMJ.Æ¯°­_190703;
+package CMJ.íŠ¹ê°•_190703;
 
 public class Song {
 	private String title;
@@ -66,11 +66,11 @@ public class Song {
 	}
 	
 	public void show() {
-		System.out.println("Á¦¸ñ: " + this.title);
-		System.out.println("°¡¼ö: " + this.artist);
-		System.out.println("¾Ù¹ü: " + this.album);
-		System.out.println("ÀÛ°î°¡: " + this.composer);
-		System.out.println("¹ßÇ¥¿¬µµ: " + this.year);
-		System.out.println("Æ®·¢¹øÈ£: " + this.track);
+		System.out.println("ì œëª©: " + this.title);
+		System.out.println("ê°€ìˆ˜: " + this.artist);
+		System.out.println("ì•¨ë²”: " + this.album);
+		System.out.println("ì‘ê³¡ê°€: " + this.composer);
+		System.out.println("ë°œí‘œì—°ë„: " + this.year);
+		System.out.println("íŠ¸ë™ë²ˆí˜¸: " + this.track);
 	}
 }

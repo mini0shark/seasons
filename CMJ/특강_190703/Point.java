@@ -1,4 +1,4 @@
-package CMJ.Æ¯°­_190703;
+package CMJ.íŠ¹ê°•_190703;
 
 public class Point {
 	private int x;
@@ -27,14 +27,14 @@ public class Point {
 	}
 	
 	public void show() {
-		System.out.println("ÁÂÇ¥ [x = " + x + ", y = " + y + "]¿¡ Á¡À» ±×·È½À´Ï´Ù.");
+		System.out.println("ì¢Œí‘œ [x = " + x + ", y = " + y + "]ì— ì ì„ ê·¸ë ¸ìŠµë‹ˆë‹¤.");
 	}
 	
 	public void show(boolean visible) {
 		if (visible) {
 			show();
 		} else {
-			System.out.println("ÁÂÇ¥ [x = " + x + ", y = " + y + "]¿¡ Á¡À» Áö¿ü½À´Ï´Ù.");
+			System.out.println("ì¢Œí‘œ [x = " + x + ", y = " + y + "]ì— ì ì„ ì§€ì› ìŠµë‹ˆë‹¤.");
 		}
 	}
 }

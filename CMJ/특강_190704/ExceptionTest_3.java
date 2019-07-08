@@ -1,4 +1,4 @@
-package CMJ.Æ¯°­_190704;
+package CMJ.íŠ¹ê°•_190704;
 
 public class ExceptionTest_3 {
 	public static void m() throws ArithmeticException {
@@ -7,8 +7,8 @@ public class ExceptionTest_3 {
 
 		// System.out.println(100 / a);
 		
-		// ÀÌ·¸°Ô ¿¹¿Ü°¡ ¹ß»ıÇßÀ» ¶§ Ã³¸®ÇÏ´Â ¹æ¹ıÀº µÎ°¡Áö
-		// ÀÌ ¸Ş¼Òµå ³»¿¡¼­ Á÷Á¢ Ã³¸®ÇÏ´Â ¹æ¹ı (try-catch ÀÌ¿ë)
+		// ì´ë ‡ê²Œ ì˜ˆì™¸ê°€ ë°œìƒí–ˆì„ ë•Œ ì²˜ë¦¬í•˜ëŠ” ë°©ë²•ì€ ë‘ê°€ì§€
+		// ì´ ë©”ì†Œë“œ ë‚´ì—ì„œ ì§ì ‘ ì²˜ë¦¬í•˜ëŠ” ë°©ë²• (try-catch ì´ìš©)
 		/*
 		 try {
 			System.out.println(100 / a);
@@ -17,19 +17,19 @@ public class ExceptionTest_3 {
 		}
 		*/
 		
-		// ¿¹¿Ü¸¦ ÀÌ ¸Ş¼Òµå¸¦ È£ÃâÇÑ ÂÊÀ¸·Î ³Ñ±è (throws ÀÌ¿ë)
-		System.out.println("m Á¾·á");
+		// ì˜ˆì™¸ë¥¼ ì´ ë©”ì†Œë“œë¥¼ í˜¸ì¶œí•œ ìª½ìœ¼ë¡œ ë„˜ê¹€ (throws ì´ìš©)
+		System.out.println("m ì¢…ë£Œ");
 	}
-	// ÀÌ ¸Ş¼Òµå¸¦ Á¤ÀÇÇÏ´Â »ç¶÷ÀÌ ÇÔ¼ö¸¦ ³Ñ±æ ¶§ Checked ExceptionÀ¸·Î Ã³¸®ÇÏ´Â °ÍÀÌ ÁÁ´Ù.
+	// ì´ ë©”ì†Œë“œë¥¼ ì •ì˜í•˜ëŠ” ì‚¬ëŒì´ í•¨ìˆ˜ë¥¼ ë„˜ê¸¸ ë•Œ Checked Exceptionìœ¼ë¡œ ì²˜ë¦¬í•˜ëŠ” ê²ƒì´ ì¢‹ë‹¤.
 	
 	public static void main(String[] args) {
-		// ¾Æ·¡ ¸Ş¼Òµå°¡ ¿¹¿Ü¸¦ ´øÁ³À¸¹Ç·Î ¿¹¿Ü Ã³¸®´Â ¸Ş¼Òµå°¡ È£ÃâÇÑ ÂÊ¿¡¼­ ÇÑ´Ù.
+		// ì•„ë˜ ë©”ì†Œë“œê°€ ì˜ˆì™¸ë¥¼ ë˜ì¡Œìœ¼ë¯€ë¡œ ì˜ˆì™¸ ì²˜ë¦¬ëŠ” ë©”ì†Œë“œê°€ í˜¸ì¶œí•œ ìª½ì—ì„œ í•œë‹¤.
 		try {
 			m();
 		} catch (Exception e) {
-			System.out.println("¸Ş¼Òµå¸¦ È£ÃâÇÑ ÂÊ¿¡¼­ ¿¹¿ÜÃ³¸® ¿Ï·á");
+			System.out.println("ë©”ì†Œë“œë¥¼ í˜¸ì¶œí•œ ìª½ì—ì„œ ì˜ˆì™¸ì²˜ë¦¬ ì™„ë£Œ");
 		}
 		
-		System.out.println("main Á¾·á");
+		System.out.println("main ì¢…ë£Œ");
 	}
 }

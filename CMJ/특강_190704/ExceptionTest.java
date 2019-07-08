@@ -1,4 +1,4 @@
-package CMJ.Æ¯°­_190704;
+package CMJ.íŠ¹ê°•_190704;
 
 public class ExceptionTest {
 	public static void main(String[] args) {
@@ -8,26 +8,26 @@ public class ExceptionTest {
 		int[] arr = new int[5];
 		
 		/*
-			// ºñÁ¤»óÀûÀÎ Á¾·á
+			// ë¹„ì •ìƒì ì¸ ì¢…ë£Œ
 			b =	100 / a;
-			System.out.println("Some more codes before try-catch"); // ¿¹¿Ü ¹ß»ıÀ¸·Î ¼öÇàµÇÁö ¾ÊÀ½
+			System.out.println("Some more codes before try-catch"); // ì˜ˆì™¸ ë°œìƒìœ¼ë¡œ ìˆ˜í–‰ë˜ì§€ ì•ŠìŒ
 		*/
 		
-		//Á¤»óÀûÀÎ Á¾·á
+		//ì •ìƒì ì¸ ì¢…ë£Œ
 		try {
 			System.out.println(arr[5]);
 			b = 100 / a;
 		} catch (ArrayIndexOutOfBoundsException e) {
-			System.out.println("ArrayIndexOutOfBoundsException ½ÇÇà");
+			System.out.println("ArrayIndexOutOfBoundsException ì‹¤í–‰");
 			System.out.println(e);
 		} catch (ArithmeticException e) {
-			System.out.println("ArithmeticException ½ÇÇà");
+			System.out.println("ArithmeticException ì‹¤í–‰");
 			a = 1;
 			b = 100 / a;
 		} catch (Exception e) {
 			System.out.println("One more catch block");
 		} finally {
-			System.out.println("¹İµå½Ã ½ÇÇàµÇ´Â ºí·°");
+			System.out.println("ë°˜ë“œì‹œ ì‹¤í–‰ë˜ëŠ” ë¸”ëŸ­");
 		}
 		
 		System.out.println("Some more codes after try-catch");

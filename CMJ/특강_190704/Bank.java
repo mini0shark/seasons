@@ -1,4 +1,4 @@
-package CMJ.Æ¯°­_190704;
+package CMJ.íŠ¹ê°•_190704;
 
 public class Bank {
 	private String name;
@@ -9,21 +9,21 @@ public class Bank {
 		this.accountNo = accountNo;
 		this.name = name;
 		this.money = money;
-	} // Bank(int money) »ı¼ºÀÚ
+	} // Bank(int money) ìƒì„±ì
 	
-	public void deposit(int money) { // ÀÔ±İ
+	public void deposit(int money) { // ì…ê¸ˆ
 		this.money += money;
 		
 		System.out.println("Deposit Success! Balance: " + this.money);
 	}
 	
-	public void withdraw(int money) throws BankException { // Ãâ±İ
+	public void withdraw(int money) throws BankException { // ì¶œê¸ˆ
 		if(this.money < money)
 			throw new BankException();
 		System.out.println("Withdraw Success! Balance: " + this.money);
 	}
 	
-	public int getMoney() { // ÀÜ¾×Á¶È¸
+	public int getMoney() { // ì”ì•¡ì¡°íšŒ
 		return this.money;
 	}
 }

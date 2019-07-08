@@ -1,13 +1,13 @@
-package CMJ.Æ¯°­_190703;
+package CMJ.íŠ¹ê°•_190703;
 
 public class CarTest {
 	public static void main(String[] args) {
 		Car mcqueen = new Car();
-		System.out.println(Car.numberOfCars + "´ëÀÇ Â÷°¡ »ı»êµÇ¾ú½À´Ï´Ù.");
+		System.out.println(Car.numberOfCars + "ëŒ€ì˜ ì°¨ê°€ ìƒì‚°ë˜ì—ˆìŠµë‹ˆë‹¤.");
 
 		Car hudson = new Car();
 
 		Car marter = new Car();
-		System.out.println(Car.numberOfCars + "´ëÀÇ Â÷°¡ »ı»êµÇ¾ú½À´Ï´Ù.");
+		System.out.println(Car.numberOfCars + "ëŒ€ì˜ ì°¨ê°€ ìƒì‚°ë˜ì—ˆìŠµë‹ˆë‹¤.");
 	}
 }

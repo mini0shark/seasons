@@ -1,4 +1,4 @@
-package CMJ.Æ¯°­_190705;
+package CMJ.íŠ¹ê°•_190705;
 
 public class Point {
 	private int x;
@@ -19,7 +19,7 @@ public class Point {
 		if(obj instanceof Point) {
 			Point p = (Point)obj;
 			if(x == p.x && y == p.y) {
-				// °°´Ù°í ¹ÝÈ¯ÇÒ Á¶°Ç ¼³Á¤
+				// ê°™ë‹¤ê³  ë°˜í™˜í•  ì¡°ê±´ ì„¤ì •
 				return true;
 			}
 		}
