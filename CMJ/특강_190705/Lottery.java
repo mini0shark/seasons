@@ -23,8 +23,6 @@ public class Lottery {
 			} while(arr[i] < 0 || arr[i] > 45);
 		}
 		
-		
-		
 		sc.close();
 	}
 }
