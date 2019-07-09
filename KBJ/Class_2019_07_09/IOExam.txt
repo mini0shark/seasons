@@ -1,0 +1,29 @@
+package day07;
+
+import java.io.BufferedInputStream;
+import java.io.BufferedReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.PrintWriter;
+
+public class IOExam01 {
+	public static void main(String[] args) throws Exception{
+		BufferedReader bs = new BufferedReader(new InputStreamReader(System.in));
+		String name =null;
+		PrintWriter pw = new PrintWriter(new FileWriter("name.txt"));
+		for(int i=0; i<5; i++) {
+			System.out.println("이름을 입력하세요");
+			try {
+				name = bs.readLine();
+				System.out.println(name);
+				pw.println(name);
+				
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		pw.close();
+	}
+}
