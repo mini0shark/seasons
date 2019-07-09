@@ -2,7 +2,7 @@ package CMJ.특강_190708;
 
 import java.util.ArrayList;
 
-public class CollectionExam_1 {
+public class CollectionTest_1 {
 	public static void main(String[] args) {
 		// 배열 (고정길이 자료구조)
 		String[] names = new String[3];
