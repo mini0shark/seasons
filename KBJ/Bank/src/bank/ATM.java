@@ -8,58 +8,59 @@ import java.util.Scanner;
 
 public class ATM {
 	private Queue<Client> clients;
+
 	public ATM() {
 		clients = new LinkedList<Client>();
 	}
+
 	public void exec() throws MyException {
 		Scanner cs = new Scanner(System.in);
-		int number =-1;
-		do{
+		int number = -1;
+		do {
 			printScreen();
-			while(true) {
+			while (true) {
 				try {
-					number = cs.nextInt();	
-					if((number>=0 && number<=8))
-						break;				
+					number = cs.nextInt();
+					if ((number >= 0 && number <= 8))
+						break;
 				} catch (Exception e) {
 					// TODO: handle exception
-				}
-				finally {
-					if(!(number>=0 && number<=8))
-					System.out.println("Àß¸ø ´­·¶½À´Ï´Ù. ¹øÈ£¸¦ È®ÀÎÇÏ°í ´­·¯ ÁÖ¼¼¿ä");
+				} finally {
+					if (!(number >= 0 && number <= 8))
+						System.out.println("ì˜ëª» ëˆŒë €ìŠµë‹ˆë‹¤. ë²ˆí˜¸ë¥¼ í™•ì¸í•˜ê³  ëˆŒëŸ¬ ì£¼ì„¸ìš”");
 				}
 			}
 			Client c = clients.peek();
 			int account;
 			int money;
-			if(number!=0 && number<6 && clients.isEmpty()) 
+			if (number != 0 && number < 6 && clients.isEmpty())
 				number = 7;
-			switch(number) {
+			switch (number) {
 			case 1:
-				System.out.println("¾î¶² °èÁÂ¿¡ ÀÔ±İÇÏ½Ã°Ú½À´Ï±î? : ");
+				System.out.println("ì–´ë–¤ ê³„ì¢Œì— ì…ê¸ˆí•˜ì‹œê² ìŠµë‹ˆê¹Œ? : ");
 				c.printBankBookInfo();
 				account = cs.nextInt();
-				System.out.println("±İ¾×À» ³Ö¾îÁÖ¼¼¿ä : ");
-				money = cs. nextInt();
+				System.out.println("ê¸ˆì•¡ì„ ë„£ì–´ì£¼ì„¸ìš” : ");
+				money = cs.nextInt();
 				c.pushDepositMoneyButton(account, money);
 				break;
 			case 2:
-				System.out.println("¾î¶² °èÁÂ¿¡¼­ Ãâ±İÇÏ½Ã°Ú½À´Ï±î? : ");
+				System.out.println("ì–´ë–¤ ê³„ì¢Œì—ì„œ ì¶œê¸ˆí•˜ì‹œê² ìŠµë‹ˆê¹Œ? : ");
 				c.printBankBookInfo();
 				account = cs.nextInt();
-				System.out.println("¾ó¸¶³ª Ãâ±İÇÏ½Ã°Ú½À´Ï±î? : ");
-				money = cs. nextInt();
+				System.out.println("ì–¼ë§ˆë‚˜ ì¶œê¸ˆí•˜ì‹œê² ìŠµë‹ˆê¹Œ? : ");
+				money = cs.nextInt();
 				c.pushWithDrawMoneyButton(account, money);
 				break;
 			case 3:
 				c.pushCheckButton();
 				break;
 			case 4:
-				System.out.println("ÃÊ±â ÀÚº»±İÀ» ÀÔ±İÇØÁÖ¼¼¿ä(0¿øÀ» ÀÔ±İÇØµµ ±¦Âú½À´Ï´Ù.)");
+				System.out.println("ì´ˆê¸° ìë³¸ê¸ˆì„ ì…ê¸ˆí•´ì£¼ì„¸ìš”(0ì›ì„ ì…ê¸ˆí•´ë„ ê´œì°®ìŠµë‹ˆë‹¤.)");
 				c.makeBankBook(c.getClientName(), cs.nextInt());
 				break;
 			case 5:
-				//³»¿ªÁ¶È¸
+				// ë‚´ì—­ì¡°íšŒ
 				break;
 			case 6:
 				getClient();
@@ -68,44 +69,47 @@ public class ATM {
 				finishTask();
 				break;
 			case 8:
-				//´ë±â¼Õ´Ô ÇÁ¸°Æ®
-				for(Client c1 : clients) {
+				// ëŒ€ê¸°ì†ë‹˜ í”„ë¦°íŠ¸
+				for (Client c1 : clients) {
 					System.out.println(c1.getClientName());
 				}
 			}
-		}while(number!=0);
-		System.out.println("ATM ±â°è°¡ Á¾·áµÇ¾ú½À´Ï´Ù.");
+		} while (number != 0);
+		System.out.println("ATM ê¸°ê³„ê°€ ì¢…ë£Œë˜ì—ˆìŠµë‹ˆë‹¤.");
 
 	}
+
 	public void printScreen() {
 		System.out.println("==============================================");
-		System.out.println("===============     ¸Ş            ´º     ================");
-		System.out.println("==                  0. Á¾  ·á  ÇÏ ±â                              ==");
-		System.out.println("==                  1. ¾Ğ  ±İ  ÇÏ  ±â                              ==");
-		System.out.println("==                  2. Ãâ  ±İ  ÇÏ  ±â                              ==");
-		System.out.println("==                  3. Á¶  È¸  ÇÏ  ±â                              ==");
-		System.out.println("==                  4. Åë  Àå  Ãß  °¡                              ==");
-		System.out.println("==                  5. ³»  ¿ª  Á¶  È¸                              ==");
-		System.out.println("==                  6. ¼Õ  ´Ô  Ãß  °¡                              ==");
-		System.out.println("==                  7. ¾÷  ¹«  Á¾  ·á                              ==");
+		System.out.println("===============     ë©”            ë‰´     ================");
+		System.out.println("==                  0. ì¢…  ë£Œ  í•˜ ê¸°                              ==");
+		System.out.println("==                  1. ì••  ê¸ˆ  í•˜  ê¸°                              ==");
+		System.out.println("==                  2. ì¶œ  ê¸ˆ  í•˜  ê¸°                              ==");
+		System.out.println("==                  3. ì¡°  íšŒ  í•˜  ê¸°                              ==");
+		System.out.println("==                  4. í†µ  ì¥  ì¶”  ê°€                              ==");
+		System.out.println("==                  5. ë‚´  ì—­  ì¡°  íšŒ                              ==");
+		System.out.println("==                  6. ì†  ë‹˜  ì¶”  ê°€                              ==");
+		System.out.println("==                  7. ì—…  ë¬´  ì¢…  ë£Œ                              ==");
 		System.out.println("==============================================");
-		System.out.println("ÀÔ·Â : ");
+		System.out.println("ì…ë ¥ : ");
 	}
+
 	public void getClient() {
 		Scanner sc = new Scanner(System.in);
-		System.out.println("ÀÌ¸§À» ÀÔ·Â ÇÏ¼¼¿ä");
-		String name =sc.nextLine();
+		System.out.println("ì´ë¦„ì„ ì…ë ¥ í•˜ì„¸ìš”");
+		String name = sc.nextLine();
 		Client newClient;
 		newClient = new Client(name);
 		clients.add(newClient);
 	}
+
 	public void finishTask() {
 		try {
-			clients.peek().saveClientInfomation();	
-			System.out.println(clients.poll().getClientName()+" °í°´´Ô ¾÷¹« ¿Ï·á");
+			clients.peek().saveClientInfomation();
+			System.out.println(clients.poll().getClientName() + " ê³ ê°ë‹˜ ì—…ë¬´ ì™„ë£Œ");
 		} catch (Exception e) {
 			// TODO: handle exception
-			System.out.println("°í°´ÀÌ ¾ø½À´Ï´Ù.");
+			System.out.println("ê³ ê°ì´ ì—†ìŠµë‹ˆë‹¤.");
 		}
 	}
 }

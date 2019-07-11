@@ -12,114 +12,121 @@ public class Client {
 	private String name;
 //	private int clientNumber;
 	private ArrayList<BankBook> bankBooks;
-	//ÇÏ³ªÀÇ ÅëÀåÀ» °¡Áö°í µî·ÏÇÏ´Â °æÀ¯
-	public Client(String name){
-		//ÆÄÀÏ¿¡¼­ °í°´¸ñ·Ï ÀĞ¾î¿Í¼­ bankBookÀÎµ¦½ºº°·Î ³Ö±â
+
+	// í•˜ë‚˜ì˜ í†µì¥ì„ ê°€ì§€ê³  ë“±ë¡í•˜ëŠ” ê²½ìœ 
+	public Client(String name) {
+		// íŒŒì¼ì—ì„œ ê³ ê°ëª©ë¡ ì½ì–´ì™€ì„œ bankBookì¸ë±ìŠ¤ë³„ë¡œ ë„£ê¸°
 		this();
 //		clientNumber = AllClientNumbers++;
-		this.name =name;
-		if(!getSavedInfomation()) {
+		this.name = name;
+		if (!getSavedInfomation()) {
 			BankBook bb = new BankBook(name, 0);
-			System.out.println("°èÁÂ ¹øÈ£´Â "+bb.getAccountNumber()+" ÀÔ´Ï´Ù.");
+			System.out.println("ê³„ì¢Œ ë²ˆí˜¸ëŠ” " + bb.getAccountNumber() + " ì…ë‹ˆë‹¤.");
 			bankBooks.add(bb);
 		}
-//		if(isNameInInfomation) ÀÌ¸§, BankBookÀ» ÃÊ±âÈ­
+//		if(isNameInInfomation) ì´ë¦„, BankBookì„ ì´ˆê¸°í™”
 	}
-	public Client(){
+
+	public Client() {
 		bankBooks = new ArrayList<BankBook>();
 	}
 
-	//°í°´ÀÇ ÀÌ¸§À» ¾ò´Â´Ù.
+	// ê³ ê°ì˜ ì´ë¦„ì„ ì–»ëŠ”ë‹¤.
 	public String getClientName() {
 		return name;
 	}
 
-	//ÅëÀåÀ» ¸¸µç´Ù.
+	// í†µì¥ì„ ë§Œë“ ë‹¤.
 	public void makeBankBook(String name, int startMoney) {
 		BankBook newBook = new BankBook(name, startMoney);
 		bankBooks.add(newBook);
 	}
-	//Ãâ±İ¹öÆ°
+
+	// ì¶œê¸ˆë²„íŠ¼
 	public void pushWithDrawMoneyButton(int accountNumber, int money) throws MyException {
 		int index = getBankBook(accountNumber);
-		if(index!=-1) {
+		if (index != -1) {
 			bankBooks.get(index).withDrawMoney(money);
 		}
 	}
-	//ÀÔ±İ¹öÆ°
+
+	// ì…ê¸ˆë²„íŠ¼
 	public void pushDepositMoneyButton(int accountNumber, int money) {
 		int index = getBankBook(accountNumber);
-		if(index!=-1) {
+		if (index != -1) {
 			bankBooks.get(index).depositMoney(money);
 		}
 	}
-	//Á¶È¸¹öÆ°
+
+	// ì¡°íšŒë²„íŠ¼
 	public void pushCheckButton() {
-		for(BankBook b : bankBooks) {
+		for (BankBook b : bankBooks) {
 			b.printValance();
 		}
 	}
-	//Æ¯Á¤°èÁÂ Á¶È¸
+
+	// íŠ¹ì •ê³„ì¢Œ ì¡°íšŒ
 	public void pushCheckButton(int accountNumber) {
 		int index = getBankBook(accountNumber);
-		if(index !=-1) {
+		if (index != -1) {
 			bankBooks.get(index).printValance();
 		}
 	}
-	//¼ÒÁöÇÑ °èÁÂ Á¶È¸
+
+	// ì†Œì§€í•œ ê³„ì¢Œ ì¡°íšŒ
 	public void printBankBookInfo() {
-		System.out.println("°èÁÂ¹øÈ£\tÀÜ¾×");
-		for(BankBook b : bankBooks) {
-			System.out.println(b.getAccountNumber()+"\t"+b.getMoneyAmount());
+		System.out.println("ê³„ì¢Œë²ˆí˜¸\tì”ì•¡");
+		for (BankBook b : bankBooks) {
+			System.out.println(b.getAccountNumber() + "\t" + b.getMoneyAmount());
 		}
 	}
 
 	public int getBankBook(int accountNumber) {
 		int index;
-		for(int i =0;i< bankBooks.size(); i++) {
+		for (int i = 0; i < bankBooks.size(); i++) {
 			index = bankBooks.get(i).getAccountNumber();
-			if(index==accountNumber)
+			if (index == accountNumber)
 				return index;
 		}
-		System.out.println("°í°´´Ô ¸íÀÇÀÇ °èÁÂ°¡ Á¸ÀçÇÏÁö ¾Ê½À´Ï´Ù.");
+		System.out.println("ê³ ê°ë‹˜ ëª…ì˜ì˜ ê³„ì¢Œê°€ ì¡´ì¬í•˜ì§€ ì•ŠìŠµë‹ˆë‹¤.");
 		return -1;
 	}
-	
-	
+
 	public void saveClientInfomation() {
-		try(PrintWriter fo = new PrintWriter("client_"+getClientName()+"_info.txt")) {
-			fo.print(name+"\n");
-			for(BankBook b : bankBooks)
-				fo.print(b.getAccountNumber()+"\n");
+		try (PrintWriter fo = new PrintWriter("client_" + getClientName() + "_info.txt")) {
+			fo.print(name + "\n");
+			for (BankBook b : bankBooks)
+				fo.print(b.getAccountNumber() + "\n");
 		} catch (Exception e) {
 			// TODO: handle exception
-			System.out.println("Á¤»óÀûÀ¸·Î ÀúÀåÇÏÁö ¸øÇß½À´Ï´Ù.");
-		} 
-		for(BankBook b :bankBooks) {
+			System.out.println("ì •ìƒì ìœ¼ë¡œ ì €ì¥í•˜ì§€ ëª»í–ˆìŠµë‹ˆë‹¤.");
+		}
+		for (BankBook b : bankBooks) {
 			b.saveBookInfomation();
 		}
 	}
+
 	public boolean getSavedInfomation() {
-		String fileName = "client_"+getClientName()+"_info.txt";
-		try (BufferedReader br = new BufferedReader(new FileReader(fileName))){
-			String  str=null;
+		String fileName = "client_" + getClientName() + "_info.txt";
+		try (BufferedReader br = new BufferedReader(new FileReader(fileName))) {
+			String str = null;
 			name = br.readLine();
 			int accountNumber;
-			while((str=br.readLine()) != null) {
+			while ((str = br.readLine()) != null) {
 				try {
 					accountNumber = Integer.parseInt(str);
 					BankBook b = new BankBook(accountNumber);
 					bankBooks.add(b);
 				} catch (Exception e) {
 					// TODO: handle exception
-					System.out.println(fileName+" ÆÄÀÏ¿¡ ¹®Á¦°¡ ÀÖ½À´Ï´Ù.");
+					System.out.println(fileName + " íŒŒì¼ì— ë¬¸ì œê°€ ìˆìŠµë‹ˆë‹¤.");
 				}
 			}
-			System.out.println("È¯¿µÇÕ´Ï´Ù!\t\""+getClientName()+"\"°í°´´Ô");
+			System.out.println("í™˜ì˜í•©ë‹ˆë‹¤!\t\"" + getClientName() + "\"ê³ ê°ë‹˜");
 			return true;
 		} catch (Exception e) {
 			// TODO: handle exception
-			System.out.println("°í°´´Ô ¸íÀÇ°¡ µî·ÏµÇÁö ¾Ê¾Æ ÅëÀåÀ» ½Å±Ô·Î °³¼³ Çß½À´Ï´Ù.");
+			System.out.println("ê³ ê°ë‹˜ ëª…ì˜ê°€ ë“±ë¡ë˜ì§€ ì•Šì•„ í†µì¥ì„ ì‹ ê·œë¡œ ê°œì„¤ í–ˆìŠµë‹ˆë‹¤.");
 			return false;
 		}
 	}

@@ -6,100 +6,108 @@ import java.io.PrintWriter;
 import java.util.ArrayList;
 
 public class BankBook {
-	static private int currentAccountNumber = -1;
-	private int money;
-	private String owner;
-	private int accountNumber;
-	//	private ArrayList<String> record;
+	static private int currentAccountNumber = -1; // ê³„ì¢Œ ê°œìˆ˜
+	private int money; // ì”ì•¡
+	private String owner; // ì†Œìœ ì£¼
+	private int accountNumber; // ê³„ì¢Œë²ˆí˜¸
+	// private ArrayList<String> record;
 
 	public BankBook(String owner, int money) {
-		if(currentAccountNumber == -1) {
-		try(BufferedReader numb = new BufferedReader(new FileReader("accountNumber.txt"))) {
-			currentAccountNumber = Integer.parseInt(numb.readLine());
-		} catch (Exception e) {
-			// TODO: handle exception
+		if (currentAccountNumber == -1) {
+			try (BufferedReader numb = new BufferedReader(new FileReader("accountNumber.txt"))) {
+				currentAccountNumber = Integer.parseInt(numb.readLine());
+			} catch (Exception e) {
+				// TODO: handle exception
+			}
 		}
-	}
 		this.money = money;
 		this.owner = owner;
-		this.accountNumber= ++currentAccountNumber;
+		this.accountNumber = ++currentAccountNumber;
 	}
+
 	public BankBook(int accountNumber) {
-		//file¿¡¼­ BankBookµé ºÒ·¯¿Í account¿¡ ³Ö±â;
+		// fileì—ì„œ BankBookë“¤ ë¶ˆëŸ¬ì™€ accountì— ë„£ê¸°;
 		this.accountNumber = accountNumber;
 		getSavedInfomation();
 	}
+
 	public String getOwnerName() {
 		return this.owner;
 	}
+
 	public int getMoneyAmount() {
 		return money;
 	}
+
 	public int getAccountNumber() {
 		return accountNumber;
 	}
 
-
 	public void depositMoney(int money) {
-		this.money+=money;
-		System.out.println(money+"¿øÀÌ ÀÔ±İ µÇ¾ú½À´Ï´Ù.");
+		this.money += money;
+		System.out.println(money + "ì›ì´ ì…ê¸ˆ ë˜ì—ˆìŠµë‹ˆë‹¤.");
 		printValance();
-	}
-	public void withDrawMoney(int money) throws MyException{
-		if(this.money<money) {
+	} // ì…ê¸ˆ í›„ ì¶œë ¥
+
+	public void withDrawMoney(int money) throws MyException {
+		if (this.money < money) {
 			throw new MyException(money, this.money);
-		}else {
-			this.money -=money;
-			System.out.println(money+"¿øÀ» Ãâ±İÇß½À´Ï´Ù.");
+		} else {
+			this.money -= money;
+			System.out.println(money + "ì›ì„ ì¶œê¸ˆí–ˆìŠµë‹ˆë‹¤.");
 			printValance();
 		}
 	}
+
 	public void printValance() {
-		System.out.println("ÇöÀç "+accountNumber+"¹ø °èÁÂÀÇ ÀÜ¾×Àº "+money+"¿ø ÀÔ´Ï´Ù.");
+		System.out.println("í˜„ì¬ " + accountNumber + "ë²ˆ ê³„ì¢Œì˜ ì”ì•¡ì€ " + money + "ì› ì…ë‹ˆë‹¤.");
 	}
+
 	public void saveBookInfomation() {
-		try(PrintWriter ff = new PrintWriter("accountNumber.txt")){
-			String tempNumber = accountNumber+"";
+		try (PrintWriter ff = new PrintWriter("accountNumber.txt")) {
+			String tempNumber = accountNumber + "";
 			ff.write(tempNumber);
-		}catch (Exception e) {
-			// TODO: handle exception
-		}
-		try(PrintWriter fo = new PrintWriter("bankBook_"+getAccountNumber()+"_info.txt")) {
-			fo.print(accountNumber+"\n");
-			fo.print(money+"\n");
-			fo.print(owner+"\n");
-			//			for(String st : record)
-			//				fo.print(st);
 		} catch (Exception e) {
 			// TODO: handle exception
-			System.out.println("Á¤»óÀûÀ¸·Î ÀúÀåÇÏÁö ¸øÇß½À´Ï´Ù.");
-		} 
+		}
+		try (PrintWriter fo = new PrintWriter("bankBook_" + getAccountNumber() + "_info.txt")) {
+			fo.print(accountNumber + "\n");
+			fo.print(money + "\n");
+			fo.print(owner + "\n");
+			// for(String st : record)
+			// fo.print(st);
+		} catch (Exception e) {
+			// TODO: handle exception
+			System.out.println("ì •ìƒì ìœ¼ë¡œ ì €ì¥í•˜ì§€ ëª»í–ˆìŠµë‹ˆë‹¤.");
+		}
 	}
+
 	public void getSavedInfomation() {
 		System.out.println(getAccountNumber());
-		String fileName = "bankBook_"+getAccountNumber()+"_info.txt";
-		try (BufferedReader br = new BufferedReader(new FileReader(fileName))){
-			String  str=null;
+		String fileName = "bankBook_" + getAccountNumber() + "_info.txt";
+		try (BufferedReader br = new BufferedReader(new FileReader(fileName))) {
+			String str = null;
 			try {
 				accountNumber = Integer.parseInt(br.readLine());
 				money = Integer.parseInt(br.readLine());
 				owner = br.readLine();
 			} catch (Exception e) {
 				// TODO: handle exception
-				System.out.println(fileName+" ÆÄÀÏ¿¡ ¹®Á¦°¡ ÀÖ½À´Ï´Ù.");
+				System.out.println(fileName + " íŒŒì¼ì— ë¬¸ì œê°€ ìˆìŠµë‹ˆë‹¤.");
 			}
 		} catch (Exception e) {
 			// TODO: handle exception
-			System.out.println("°í°´´Ô ¸íÀÇÀÇ ÅëÀåÀÌ ¾ø½À´Ï´Ù.");
-		}		
+			System.out.println("ê³ ê°ë‹˜ ëª…ì˜ì˜ í†µì¥ì´ ì—†ìŠµë‹ˆë‹¤.");
+		}
 	}
 }
 
-class MyException extends Exception{
+class MyException extends Exception {
 	public MyException() {
-		super("ÀÜ¾×ÀÌ ºÎÁ·ÇÕ´Ï´Ù.");
+		super("ì”ì•¡ì´ ë¶€ì¡±í•©ë‹ˆë‹¤.");
 	}
+
 	public MyException(int money, int change) {
-		super("ÅëÀå¿¡ "+money+"¿øÀÌ ¾ø½À´Ï´Ù. \nÇöÀç ÀÜ¾×Àº "+change+"¿øÀÔ´Ï´Ù. ´Ù½Ã ½Ãµµ ÇÏ¼¼¿ä");
+		super("í†µì¥ì— " + money + "ì›ì´ ì—†ìŠµë‹ˆë‹¤. \ní˜„ì¬ ì”ì•¡ì€ " + change + "ì›ì…ë‹ˆë‹¤. ë‹¤ì‹œ ì‹œë„ í•˜ì„¸ìš”");
 	}
 }
