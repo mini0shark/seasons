@@ -1,0 +1,24 @@
+복습
+InputStream => 한자씩 입력이 들어온다.(byte단위로 입출력을 받는다.)
+Reader/Writer => char단위로 읽는다.
+========> 어디다 입력/출력할거인지 모르기 때문에 추상 클래스이다.
+
+Buffered => 한줄씩 입력 받기 위해서
+I/O=> 데코레이터 라는 패턴을 이용함.
+장식/주인공 => 생성자에 또다른 Input/OutputStream을 받는 클래스 들 -- 기능이 중요하다.
+
+BufferedReader => 한줄씩 받고 싶은데 생성자에 Reader가 들어가야 함
+ System.in=> inputStream --> Reader로 바꿔서 사용 해야 한다.--> InputStreamReader
+
+PrintStream//-> 편리한 기능들을 가지고 있다.
+PrintWriter //-> 파일에 쓰는 것 가능 
+
+---- 몇가지 케이스를 외우면 편함.
+Byte배열로 받아서 쓰는게 중요함 => 운영체제가 어느정도 버퍼에 들어와야 파일 출력을 한다.
+
+반드시 close()-finally에 사용하면 좋다.
+
+generic 객체가 생성될때 Object를 결정해 줌
+
+채팅 프로그램-> 소켓들이 각 입/출력을 갖는다. -->inputStream/ outputStream
+========================끼워서 끼워서 사용하면 된다. =================================

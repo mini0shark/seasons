@@ -20,6 +20,7 @@ public class Client {
 		this.name =name;
 		if(!getSavedInfomation()) {
 			BankBook bb = new BankBook(name, 0);
+			System.out.println("계좌 번호는 "+bb.getAccountNumber()+" 입니다.");
 			bankBooks.add(bb);
 		}
 //		if(isNameInInfomation) 이름, BankBook을 초기화
@@ -118,7 +119,7 @@ public class Client {
 			return true;
 		} catch (Exception e) {
 			// TODO: handle exception
-			System.out.println("고객님 명의가 등록되지 않아 등록 합니다. 4번을 눌러 통장을 개설해 보세요");
+			System.out.println("고객님 명의가 등록되지 않아 통장을 신규로 개설 했습니다.");
 			return false;
 		}
 	}

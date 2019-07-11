@@ -13,6 +13,13 @@ public class BankBook {
 	//	private ArrayList<String> record;
 
 	public BankBook(String owner, int money) {
+		if(currentAccountNumber == -1) {
+		try(BufferedReader numb = new BufferedReader(new FileReader("accountNumber.txt"))) {
+			currentAccountNumber = Integer.parseInt(numb.readLine());
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+	}
 		this.money = money;
 		this.owner = owner;
 		this.accountNumber= ++currentAccountNumber;
@@ -50,18 +57,10 @@ public class BankBook {
 	public void printValance() {
 		System.out.println("현재 "+accountNumber+"번 계좌의 잔액은 "+money+"원 입니다.");
 	}
-
-	//============내역보기
-	//	public void printHistory() {
-	//		for(String i:record) {
-	//			
-	//		}
-	//	}
-
-
 	public void saveBookInfomation() {
 		try(PrintWriter ff = new PrintWriter("accountNumber.txt")){
-			ff.write(accountNumber);
+			String tempNumber = accountNumber+"";
+			ff.write(tempNumber);
 		}catch (Exception e) {
 			// TODO: handle exception
 		}
@@ -77,13 +76,6 @@ public class BankBook {
 		} 
 	}
 	public void getSavedInfomation() {
-		if(currentAccountNumber == -1) {
-			try(BufferedReader numb = new BufferedReader(new FileReader("accountNumber.txt"))) {
-				currentAccountNumber = Integer.parseInt(numb.readLine());
-			} catch (Exception e) {
-				// TODO: handle exception
-			}
-		}
 		System.out.println(getAccountNumber());
 		String fileName = "bankBook_"+getAccountNumber()+"_info.txt";
 		try (BufferedReader br = new BufferedReader(new FileReader(fileName))){
