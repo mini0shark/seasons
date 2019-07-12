@@ -7,9 +7,9 @@ import java.util.Queue;
 import java.util.Scanner;
 
 public class ATM {
-	private Queue<Client> clients;
+	private Queue<ClientDAO> clients;
 	public ATM() {
-		clients = new LinkedList<Client>();
+		clients = new LinkedList<ClientDAO>();
 	}
 	public void exec() throws MyException {
 		Scanner cs = new Scanner(System.in);
@@ -18,7 +18,7 @@ public class ATM {
 			printScreen();
 			while(true) {
 				try {
-					number = cs.nextInt();	
+					number = Integer.parseInt(cs.nextLine());	
 					if((number>=0 && number<=8))
 						break;				
 				} catch (Exception e) {
@@ -29,7 +29,7 @@ public class ATM {
 					System.out.println("잘못 눌렀습니다. 번호를 확인하고 눌러 주세요");
 				}
 			}
-			Client c = clients.peek();
+			ClientDAO c = clients.peek();
 			int account;
 			int money;
 			if(number!=0 && number<6 && clients.isEmpty()) 
@@ -69,7 +69,7 @@ public class ATM {
 				break;
 			case 8:
 				//대기손님 프린트
-				for(Client c1 : clients) {
+				for(ClientDAO c1 : clients) {
 					System.out.println(c1.getClientName());
 				}
 			}
@@ -95,8 +95,8 @@ public class ATM {
 		Scanner sc = new Scanner(System.in);
 		System.out.println("이름을 입력 하세요");
 		String name =sc.nextLine();
-		Client newClient;
-		newClient = new Client(name);
+		ClientDAO newClient;
+		newClient = new ClientDAO(name);
 		clients.add(newClient);
 	}
 	public void finishTask() {
