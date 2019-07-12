@@ -88,6 +88,7 @@ public class ATM {
 		System.out.println("==                  5. 내  역  조  회                              ==");
 		System.out.println("==                  6. 손  님  추  가                              ==");
 		System.out.println("==                  7. 업  무  종  료                              ==");
+		System.out.println("==                  8. 대  기  손  님                              ==");
 		System.out.println("==============================================");
 		System.out.println("입력 : ");
 	}

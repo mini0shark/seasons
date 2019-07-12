@@ -1,0 +1,11 @@
+JUnit => 프레임 워크이므로 main 이 이미 만들어져 있다.!!
+setup , tearDown 테스트 전후에 설정/원상복귀 할때 쓴다.
+
+테스트코드를 만들어보는 습관을 갖는게 좋음
+단위테스트(정해진 테스트에 정해진클래스)
+
+
+테스트 개발에서 
+conn.setAutoCommit() 는 기본으로 true인데
+conn.setAutoCommit(false)로 하면 자동으로 커밋이 안되서 나중에 commit()을 해줘야 한다.
+조건에 따라서 수동적으로 commit을 하면 된다. 

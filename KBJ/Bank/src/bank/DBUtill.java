@@ -16,7 +16,17 @@ public class DBUtill {
 			return conn;
 		
 	}
-	
+	public static void destroy(PreparedStatement ps) {
+		try {
+			if(ps != null)
+				ps.close();
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+		finally {
+			System.out.println("rs Á¾·á");
+		}
+	}
 	public static void destroy(Connection conn, PreparedStatement ps) {
 		try {
 			if(ps != null)
