@@ -1,6 +1,6 @@
 package CMJ.특강_190708;
 
-import java.awt.List;
+import java.awt.*;
 import java.util.*;
 
 public class CollectionTest_2 {
