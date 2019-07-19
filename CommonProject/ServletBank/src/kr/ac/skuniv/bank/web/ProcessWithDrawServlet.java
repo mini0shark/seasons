@@ -10,14 +10,17 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class BankServlet
+ * Servlet implementation class ProcessWithDrawServlet
  */
-@WebServlet("/")
-public class BankServlet extends HttpServlet {
+@WebServlet("/ProcessWithDrawServlet")
+public class ProcessWithDrawServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+
 	@Override
-	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		RequestDispatcher rd = request.getRequestDispatcher("mainPage.jsp");
-		rd.forward(request,  response);
+	protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		RequestDispatcher rd = req.getRequestDispatcher("");
+		rd.forward(req, resp);
 	}
+       
+
 }

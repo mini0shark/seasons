@@ -10,14 +10,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class BankServlet
+ * Servlet implementation class BankLoginServlet
  */
-@WebServlet("/")
-public class BankServlet extends HttpServlet {
+@WebServlet("/BankLoginServlet")
+public class BankLoginServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	@Override
+
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		RequestDispatcher rd = request.getRequestDispatcher("mainPage.jsp");
-		rd.forward(request,  response);
+		// TODO Auto-generated method stub
+		RequestDispatcher rd = request.getRequestDispatcher("bankLogin.jsp");
+		rd.forward(request, response);
 	}
+
 }

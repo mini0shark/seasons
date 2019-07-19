@@ -42,7 +42,7 @@ public class BankBookDAO {
 		PreparedStatement ps = null;
 		try {
 			conn = DBUtill.getConnection();
-			String sql = "DELTE FROM bankbook WHERE ID = ?";
+			String sql = "DELTE FROM bankbook WHERE accountNumber = ?";
 			ps= conn.prepareStatement(sql);
 			ps.setInt(1, accountNumber);
 			if(ps.executeUpdate()==1) {
@@ -64,12 +64,13 @@ public class BankBookDAO {
 		try {
 			conn = DBUtill.getConnection();
 			String sql = "SELECT accountNumber, valance, password, clientNumber, clientName FROM "
-					+ "bankbook WHERE ID = ?";
+					+ "bankbook WHERE accountNumber = ?";
 			ps= conn.prepareStatement(sql);
 			ps.setInt(1, accountNumber);
 			rs = ps.executeQuery();
 			while(rs.next()) {
 				bb = new BankBook(rs.getInt("accountNumber"), rs.getInt("valance"), rs.getString("password"), rs.getInt("clientNumber"), rs.getString("clientName"));
+				
 			}
 		} catch (Exception e) {
 			// TODO: handle exception
