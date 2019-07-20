@@ -22,15 +22,16 @@ public class BankBook {
 	}
 	public String getPassword() {return password;}
 	public void setPassword(String password) {this.password = password;}
-	public String getOwner() {return clientName;}
+	
 	public int getClientNumber() {return clientNumber;}
 	public void setClientNumber(int clientNumber) {this.clientNumber = clientNumber;}
+	
 	public String getClientName() {return clientName;}
 	public void setClientName(String clientName) {this.clientName = clientName;}
-	public void setOwner(String clientName) {this.clientName = clientName;}
+	
 	public int getValance() {return valance;}
 	public void setValance(int valance) {this.valance = valance;}
+	
 	public int getAccountNumber() {return accountNumber;}
-	public void setAccountNumber(int accountNumber) {this.accountNumber = accountNumber;}
 	
 }

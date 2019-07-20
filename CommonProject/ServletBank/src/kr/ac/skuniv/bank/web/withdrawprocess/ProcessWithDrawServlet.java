@@ -1,4 +1,4 @@
-package kr.ac.skuniv.bank.web;
+package kr.ac.skuniv.bank.web.withdrawprocess;
 
 import java.io.IOException;
 
@@ -10,16 +10,15 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class ProcessDepositServlet
+ * Servlet implementation class ProcessWithDrawServlet
  */
-@WebServlet("/ProcessDepositServlet")
-public class ProcessDepositServlet extends HttpServlet {
+@WebServlet("/ProcessWithDrawServlet")
+public class ProcessWithDrawServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	@Override
 	protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-
-		RequestDispatcher rd = req.getRequestDispatcher("depositTemp.jsp");
+		RequestDispatcher rd = req.getRequestDispatcher("");
 		rd.forward(req, resp);
 	}
        

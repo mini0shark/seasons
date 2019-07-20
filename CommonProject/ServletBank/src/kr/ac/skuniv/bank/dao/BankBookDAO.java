@@ -16,14 +16,13 @@ public class BankBookDAO {
 		PreparedStatement ps = null;
 		try {
 			conn = DBUtill.getConnection();
-			String sql = "INSERT INTO bankbook (accountNumber, valance, password, clientNumber, clientName)"
-					+ " VALUES(?,?,?,?,?)";
+			String sql = "INSERT INTO bankbook (accountNumber, valance, password,  clientId)"
+					+ " VALUES(?,?,?,?)";
 			ps= conn.prepareStatement(sql);
 			ps.setInt(1, bankBook.getAccountNumber());
 			ps.setInt(2, bankBook.getValance());
 			ps.setString(3, bankBook.getPassword());
-			ps.setInt(4, bankBook.getClientNumber());
-			ps.setString(5, bankBook.getClientName());
+			ps.setString(4, bankBook.getClientId());
 			if(ps.executeUpdate()==1) {
 				result= true;
 			}
@@ -63,13 +62,13 @@ public class BankBookDAO {
 		ResultSet rs = null;
 		try {
 			conn = DBUtill.getConnection();
-			String sql = "SELECT accountNumber, valance, password, clientNumber, clientName FROM "
+			String sql = "SELECT accountNumber, valance, password, clientId FROM "
 					+ "bankbook WHERE accountNumber = ?";
 			ps= conn.prepareStatement(sql);
 			ps.setInt(1, accountNumber);
 			rs = ps.executeQuery();
 			while(rs.next()) {
-				bb = new BankBook(rs.getInt("accountNumber"), rs.getInt("valance"), rs.getString("password"), rs.getInt("clientNumber"), rs.getString("clientName"));
+				bb = new BankBook(rs.getInt("accountNumber"), rs.getInt("valance"), rs.getString("password"), rs.getString("clientId"));
 				
 			}
 		} catch (Exception e) {
@@ -79,21 +78,44 @@ public class BankBookDAO {
 		}
 		return bb;
 	}
-	//통장 여러개 리턴
-	public ArrayList<BankBook> selectBankBook(int clientNumber, String clientName) {
+
+	//통장 여러개 리턴-관리자 입장.
+	public ArrayList<BankBook> selectBankBook() {
 		ArrayList<BankBook> bbArr = new ArrayList<BankBook>();
 		Connection conn=null;
 		PreparedStatement ps = null;
 		ResultSet rs = null;
 		try {
 			conn = DBUtill.getConnection();
-			String sql = "SELECT accountNumber, valance, password, clientNumber, clientName FROM "
-					+ "bankbook WHERE clientNumber = ?";
+			String sql = "SELECT accountNumber, valance, password, clientId FROM bankbook";
 			ps= conn.prepareStatement(sql);
-			ps.setInt(1, clientNumber);
 			rs = ps.executeQuery();
 			while(rs.next()) {
-				BankBook bb = new BankBook(rs.getInt("accountNumber"), rs.getInt("valance"), rs.getString("password"), rs.getInt("clientNumber"), rs.getString("clientName"));
+				BankBook bb = new BankBook(rs.getInt("accountNumber"), rs.getInt("valance"), rs.getString("password"),  rs.getString("clientId"));
+				bbArr.add(bb);
+			}
+		} catch (Exception e) {
+			// TODO: handle exception
+		}finally{
+			DBUtill.destroy(conn, ps);
+		}
+		return bbArr;
+	}
+	//통장 여러개 리턴- 회원에 따라
+	public ArrayList<BankBook> selectBankBook(String id) {
+		ArrayList<BankBook> bbArr = new ArrayList<BankBook>();
+		Connection conn=null;
+		PreparedStatement ps = null;
+		ResultSet rs = null;
+		try {
+			conn = DBUtill.getConnection();
+			String sql = "SELECT accountNumber, valance, password, clientId FROM "
+					+ "bankbook WHERE clientId = ?";
+			ps= conn.prepareStatement(sql);
+			ps.setString(1, id);
+			rs = ps.executeQuery();
+			while(rs.next()) {
+				BankBook bb = new BankBook(rs.getInt("accountNumber"), rs.getInt("valance"), rs.getString("password"),  rs.getString("clientId"));
 				bbArr.add(bb);
 			}
 		} catch (Exception e) {
@@ -110,14 +132,12 @@ public class BankBookDAO {
 		PreparedStatement ps = null;
 		try {
 			conn = DBUtill.getConnection();
-			String sql = "UPDATE bankbook (valance, password, clientNumber, clientName)"
-					+ " VALUES(?,?,?,?) WHERE accountNumber = ?";
+			String sql = "UPDATE bankbook SET valance=?, password=?,  clientId=? WHERE accountNumber = ?";
 			ps= conn.prepareStatement(sql);
 			ps.setInt(1, bankBook.getValance());
 			ps.setString(2, bankBook.getPassword());
-			ps.setInt(3, bankBook.getClientNumber());
-			ps.setString(4, bankBook.getClientName());
-			ps.setInt(5, bankBook.getAccountNumber());
+			ps.setString(3, bankBook.getClientId());
+			ps.setInt(4, bankBook.getAccountNumber());
 			if(ps.executeUpdate()==1) {
 				result= true;
 			}
@@ -133,6 +153,7 @@ public class BankBookDAO {
 		Connection conn=null;
 		PreparedStatement ps = null;
 		ResultSet rs = null;
+		boolean flag=false;
 		try {
 			conn = DBUtill.getConnection();
 			String sql = "SELECT * FROM bankbook WHERE accountNumber = ?";
@@ -140,13 +161,35 @@ public class BankBookDAO {
 			ps.setInt(1, accountNumber);
 			rs = ps.executeQuery();
 			if(rs.next()) {
-				return true;
+				flag= true;
 			}
 		} catch (Exception e) {
 			// TODO: handle exception
 		}finally{
 			DBUtill.destroy(conn, ps);
 		}
-		return false;
+		return flag;
+	}
+	//계좌번호 검사
+	public int countAccountNumber(String clientId) {
+		Connection conn=null;
+		PreparedStatement ps = null;
+		ResultSet rs = null;
+		int result= 0;
+		try {
+			conn = DBUtill.getConnection();
+			String sql = "SELECT * FROM bankbook WHERE clientId = ?";
+			ps= conn.prepareStatement(sql);
+			ps.setString(1, clientId);
+			rs = ps.executeQuery();
+			while(rs.next()) {
+				result++;
+			}
+		} catch (Exception e) {
+			// TODO: handle exception
+		}finally{
+			DBUtill.destroy(conn, ps);
+		}
+		return result;
 	}
 }

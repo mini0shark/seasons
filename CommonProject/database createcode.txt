@@ -1,0 +1,30 @@
+bankBook createÄõ¸®
+=======================================================================
+CREATE TABLE `bankbook` (
+	`accountNumber` INT(4) UNSIGNED ZEROFILL NOT NULL AUTO_INCREMENT COMMENT '°èÁÂ¹øÈ£',
+	`valance` INT(20) NOT NULL COMMENT 'ÀÜ¾×',
+	`password` VARCHAR(50) NOT NULL,
+	`clientId` VARCHAR(50) NOT NULL,
+	PRIMARY KEY (`accountNumber`)
+)
+COLLATE='utf8_general_ci'
+ENGINE=InnoDB
+AUTO_INCREMENT=5545
+;
+=======================================================================
+client create Äõ¸®
+=======================================================================
+CREATE TABLE `client` (
+	`clientNumber` INT(11) NOT NULL AUTO_INCREMENT COMMENT 'ÀÎµ¦½º',
+	`id` VARCHAR(50) NOT NULL,
+	`name` VARCHAR(20) NOT NULL,
+	`password` VARCHAR(50) NULL DEFAULT NULL,
+	`birthday` DATE NOT NULL,
+	`phoneNumber` INT(4) NOT NULL DEFAULT '0',
+	PRIMARY KEY (`id`),
+	INDEX `clientNumber` (`clientNumber`)
+)
+COLLATE='utf8_general_ci'
+ENGINE=InnoDB
+AUTO_INCREMENT=16
+;

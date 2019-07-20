@@ -1,4 +1,4 @@
-package kr.ac.skuniv.bank.web;
+package kr.ac.skuniv.bank.web.bankbook;
 
 import java.io.IOException;
 
@@ -9,17 +9,20 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import kr.ac.skuniv.common.CookieUtill;
+
 /**
- * Servlet implementation class BankServlet
+ * Servlet implementation class CreateBankBookServlet
  */
-@WebServlet("/")
-public class BankServlet extends HttpServlet {
+@WebServlet("/CreateBankBookServlet")
+public class CreateBankBookServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	@Override
+       
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		RequestDispatcher rd = request.getRequestDispatcher("mainPage.jsp");
-		rd.forward(request,  response);
+		// TODO Auto-generated method stub
+		
+		RequestDispatcher rd = request.getRequestDispatcher("WEB-INF/bankbook/createBankBook.jsp");
+		rd.forward(request, response);
 	}
-	
-	
+
 }

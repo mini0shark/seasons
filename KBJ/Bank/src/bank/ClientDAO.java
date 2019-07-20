@@ -2,136 +2,85 @@ package bank;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.util.ArrayList;
 
 public class ClientDAO {
 
-	//ªı ∞Ì∞¥¿ª DBø° √ﬂ∞°«œ∞Ì ∞Ì∞¥ ID∞™¿ª π›»Ø«—¥Ÿ. 
-	public int addClientAndGetId(String name) {
-		int id=-1;
+	public boolean insertClient(String birthday, int phoneNumber, String name) {
+		boolean resultFlag= false;
 		Connection conn = null;
 		PreparedStatement ps = null;
-		ResultSet rs = null;
 		try {
 			conn = DBUtill.getConnection();
-			String sql = "insert into client(clientid,name) values(default, ?)";
+			String sql = "INSERT INTO client (clientNumber,birthday,phoneNumber,name) VALUES(default,?,?,?)";
 			ps = conn.prepareStatement(sql);
-			ps.setString(1, name);
+			ps.setString(1, birthday);
+			ps.setInt(2, phoneNumber);
+			ps.setString(3, name);
 			int result = ps.executeUpdate();
-			DBUtill.destroy(ps);
-			if(result == 1) {
-				try {
-					sql = "SELECT clientid FROM client where name = ? ORDER BY clientid ASC";
-					ps = conn.prepareStatement(sql);
-					ps.setString(1, name);
-					rs = ps.executeQuery();
-					if(rs.next()) {
-						id = rs.getInt("clientid");
-					}
-				} catch (Exception e) {
-					// TODO: handle exception
-				}finally {
-				}
-			}
+			if(result == 1) 
+				resultFlag = true;
 		} catch (Exception e) {
 			// TODO: handle exception
-			e.printStackTrace();
+			System.out.println("client DataBase Ï†ëÍ∑ºÏóê Ïã§Ìå®ÌñàÏäµÎãàÎã§.");
 		}finally {
 			DBUtill.destroy(conn, ps);
+			return resultFlag;	
 		}
-		return id;
 	}
-	
-	//ºˆ¡§(¿Ã∏ß ºˆ¡§«“ ∂ß∏∏ ªÁøÎ)
-	public boolean updateClient(Client c) {
-		boolean resultFlag=false;
+	public boolean deleteClient(String birthday, int phoneNumber) {
+		boolean resultFlag= false;
 		Connection conn = null;
 		PreparedStatement ps = null;
 		try {
 			conn = DBUtill.getConnection();
-			String sql = "UPDATE client SET clientid = ?, name = ? WHERE clientid = ?";
+			String sql = "DELETE FROM client WHERE birthday = ? AND phoneNumber = ?";			
 			ps = conn.prepareStatement(sql);
-			ps.setInt(1, c.getId());
-			ps.setString(2, c.getName());
-			ps.setInt(3, c.getId());
+			ps.setString(1, birthday);
+			ps.setInt(2, phoneNumber);
 			int result = ps.executeUpdate();
-			if(result == 1)
-				resultFlag=true;
+			if(result == 1) 
+				resultFlag = true;
 		} catch (Exception e) {
 			// TODO: handle exception
-			e.printStackTrace();
+			System.out.println("client DataBase Ï†ëÍ∑ºÏóê Ïã§Ìå®ÌñàÏäµÎãàÎã§.");
 		}finally {
 			DBUtill.destroy(conn, ps);
+			return resultFlag;	
 		}
-		return resultFlag;
 	}
-	//ªË¡¶
-	public boolean deleteClient(Client c) {
-		boolean resultFlag=false;
+	public boolean updateClient(String birthday,int phoneNumber, String name) {
+		boolean resultFlag= false;
 		Connection conn = null;
 		PreparedStatement ps = null;
 		try {
 			conn = DBUtill.getConnection();
-			String sql = "delete from client where clientid = ?";
+			String sql = "UPDATE client SET birthday = ?,phoneNumber= ?,name =? WHERE birthday = ?, phoneNumber =?";
 			ps = conn.prepareStatement(sql);
-			ps.setInt(1, c.getId());
+			ps.setString(1, birthday);
+			ps.setInt(2, phoneNumber);
+			ps.setString(3, name);
+			ps.setString(4, birthday);
+			ps.setInt(5, phoneNumber);
 			int result = ps.executeUpdate();
-			if(result == 1)
-				resultFlag=true;
+			if(result == 1) 
+				resultFlag = true;
 		} catch (Exception e) {
 			// TODO: handle exception
-			e.printStackTrace();
+			System.out.println("client DataBase Ï†ëÍ∑ºÏóê Ïã§Ìå®ÌñàÏäµÎãàÎã§.");
 		}finally {
 			DBUtill.destroy(conn, ps);
+			return resultFlag;	
 		}
-		return resultFlag;
 	}
-	//¡∂»∏ («—∞«)
-//	public BankBook selectClient(String id) {
-//		Client result = null;
-//		Connection conn = null;
-//		PreparedStatement ps = null;
-//		ResultSet rs = null;
-//		try {
-//			conn = DBUtill.getConnection();
-//			String sql = "select clientid,name from bankbook where clientid = ?";
-//			ps = conn.prepareStatement(sql);
-//			ps.setString(1, id);
-//			rs = ps.executeQuery();
-//			while(rs.next()){
-//				result = new Client(rs.getInt("clientid"), rs.getString("name"));
-//			}
-//		} catch (Exception e) {
-//			// TODO: handle exception
-//			e.printStackTrace();
-//		}finally {
-//			DBUtill.destroy(conn, ps);
-//		}
-//		return result;
-//	}
-	//¡∂»∏ (ø©∑Ø∞«)
-
-	public ArrayList<BankBook> selectClient() {
-		ArrayList<Client> arrayClient= new ArrayList<Client>();
-		Client result = null;
-		Connection conn = null;
-		PreparedStatement ps = null;
-		ResultSet rs = null;
-		try {
-			conn = DBUtill.getConnection();
-			String sql = "select client,name from client";
-			ps = conn.prepareStatement(sql);
-			rs = ps.executeQuery();
-			while(rs.next()){
-				arrayClient.add(new Client(rs.getInt("clientid"), rs.getString("name")));
-			}
-		} catch (Exception e) {
-			// TODO: handle exception
-			e.printStackTrace();
-		}finally {
-			DBUtill.destroy(conn, ps);
-		}
-		return arrayClient;
+	//ÌÜµÏû• ÌïòÎÇò Î¶¨ÌÑ¥
+	public BankBook selectClient(int accountNumber, int clientNumber) {
+		BankBook bb = null;
+		return bb;
+	}
+	//ÌÜµÏû• Ïó¨Îü¨Í∞ú Î¶¨ÌÑ¥
+	public ArrayList<Client> selectClient(int accountNumber) {
+		ArrayList<Client> bbArr = new ArrayList<Client>();
+		return bbArr;
 	}
 }

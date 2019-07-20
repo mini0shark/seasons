@@ -7,25 +7,29 @@
 <title>Insert title here</title>
 </head>
 <body>
-<%
-	int accountNumber=0;
-	if(request.getParameter("accountNumber")!=null){
-		accountNumber = Integer.parseInt(request.getParameter("accountNumber"));
-		%>====비밀번호가 틀렸습니다====<%
-	}
-	String task="";
-	if(request.getParameter("task")!=null){
-		task = (String)request.getParameter("task");
-	}
-%>
+	<%
+		String id = "";
+		String msg = "로그인";
+		if (request.getParameter("id") != null) {
+			id = request.getParameter("id");
+	%>====아이디 혹은 비밀번호가 틀렸습니다====<%
+		}
+		String task = "";
+		if (request.getParameter("task") != null) {
+			task = (String) request.getParameter("task");
+			msg = "로그인이 필요한 서비스 입니다.";
+		} else {
+			task = "";
+		}
+	%>
 	<center>
-		<h1>로그인 폼</h1>
+		<h1><%=msg%></h1>
 		<table>
 			<form action="CheckLoginServlet" method="post">
-			<input type ="hidden" name="task" value ="<%=task %>"/>
+				<input type="hidden" name="task" value="<%=task%>" />
 				<tr>
-					<td>계좌 :</td>
-					<td><input type="number" name="accountNumber" value="<%=accountNumber %>"></td>
+					<td>아이디 :</td>
+					<td><input type="text" name="id" value="<%=id%>"></td>
 				</tr>
 				<tr>
 					<td>비밀번호 :</td>

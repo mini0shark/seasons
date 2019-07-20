@@ -1,4 +1,4 @@
-package kr.ac.skuniv.bank.web;
+package kr.ac.skuniv.bank.web.login;
 
 import java.io.IOException;
 
@@ -18,7 +18,7 @@ public class BankLoginServlet extends HttpServlet {
 
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		RequestDispatcher rd = request.getRequestDispatcher("bankLogin.jsp");
+		RequestDispatcher rd = request.getRequestDispatcher("WEB-INF/bankLogin.jsp");
 		rd.forward(request, response);
 	}
 

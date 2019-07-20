@@ -1,4 +1,4 @@
-package kr.ac.skuniv.bank.web;
+package kr.ac.skuniv.bank.web.login;
 
 import java.io.IOException;
 
@@ -10,7 +10,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import kr.ac.skuniv.bank.dto.Client;
 import kr.ac.skuniv.bank.service.BankBookService;
+import kr.ac.skuniv.bank.service.ClientService;
 
 /**
  * Servlet implementation class CheckLoginServlet
@@ -21,28 +23,32 @@ public class CheckLoginServlet extends HttpServlet {
 
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		int accountNumber = Integer.parseInt(req.getParameter("accountNumber"));
+		String id = req.getParameter("id");
 		String password = req.getParameter("password");
-		
-		BankBookService bankBookService = new BankBookService();
-		int tempId = bankBookService.getAccounts(accountNumber).getAccountNumber();
-		String tempPassword =bankBookService.getAccounts(accountNumber).getPassword();
-		if(accountNumber==tempId && tempPassword.equals(password)) {
+		ClientService clientService = new ClientService();
+		Client client = clientService.getAccounts(id);
+		String checkId = null;
+		String checkPassword  = null;
+		if(client != null) {
+			checkId= client.getId();
+			checkPassword = clientService.getAccounts(id).getPassword();
+		}
+		if(id.equals(checkId) && checkPassword.equals(password)) {
 			Cookie cookie = new Cookie("login", "true");
 			cookie.setPath("/");
 			cookie.setMaxAge(-1);
 			resp.addCookie(cookie);
-			cookie = new Cookie("accountNumber", Integer.toString(accountNumber));
+			cookie = new Cookie("id", id);
 			cookie.setPath("/");
 			cookie.setMaxAge(-1);
 			resp.addCookie(cookie);
 			if(req.getParameter("task").equals("")) {
-				resp.sendRedirect("mainPage.jsp");
+				resp.sendRedirect("/ServletBank/");
 			}
 			else{
 				switch((String)req.getParameter("task")) {
 				case "deposit":
-					resp.sendRedirect("ProcessDepositServlet");
+					resp.sendRedirect("ProcessDepositChooseBankBookServlet");
 					break;
 				case "withdraw":
 					resp.sendRedirect("ProcessWithdrawServlet");
@@ -54,10 +60,9 @@ public class CheckLoginServlet extends HttpServlet {
 			}
 
 		}else {
-			RequestDispatcher rd = req.getRequestDispatcher("BankLoginServlet?accountNumber="+accountNumber);
-			rd.forward(req, resp);
+			resp.sendRedirect("BankLoginServlet?id="+id);
+//			RequestDispatcher rd = req.getRequestDispatcher("BankLoginServlet?id="+id);
+//			rd.forward(req, resp);
 		}
 	}
-
-
 }

@@ -17,7 +17,7 @@ public class BankServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	@Override
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		RequestDispatcher rd = request.getRequestDispatcher("mainPage.jsp");
+		RequestDispatcher rd = request.getRequestDispatcher("WEB-INF/mainPage.jsp");
 		rd.forward(request,  response);
 	}
 }

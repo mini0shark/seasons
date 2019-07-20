@@ -28,10 +28,10 @@ public class BankMainServlet extends HttpServlet {
 			
 		if(loginFlag) {
 			request.setAttribute("login", true);
-			RequestDispatcher rd = request.getRequestDispatcher("mainPage.jsp");
+			RequestDispatcher rd = request.getRequestDispatcher("WEB-INF/mainPage.jsp");
 			rd.forward(request, response);
 		}else {
-			response.sendRedirect("BankLoginServlet?id=");
+			response.sendRedirect("BankLoginServlet?id="+request.getParameter("id"));
 			//안나올 수 도
 		}
 

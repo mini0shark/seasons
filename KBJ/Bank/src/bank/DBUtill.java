@@ -7,10 +7,12 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class DBUtill {
-	public static Connection getConnection() throws SQLException{
+	public static Connection getConnection() throws Exception{
+		Class.forName("org.mariadb.jdbc.Driver");
 		return getConnection( "jdbc:mariadb://localhost:3306/skudb", "sku", "sku");
 	}
-	public static Connection getConnection( String url,String id, String password) throws SQLException{
+	public static Connection getConnection( String url,String id, String password) throws Exception{
+		Class.forName("org.mariadb.jdbc.Driver");
 		Connection conn = null;
 			conn = DriverManager.getConnection(url, id, password);
 			return conn;
@@ -24,7 +26,7 @@ public class DBUtill {
 			// TODO: handle exception
 		}
 		finally {
-			System.out.println("rs Á¾·á");
+			System.out.println("rs ï¿½ï¿½ï¿½ï¿½");
 		}
 	}
 	public static void destroy(Connection conn, PreparedStatement ps) {
@@ -35,7 +37,7 @@ public class DBUtill {
 			// TODO: handle exception
 		}
 		finally {
-			System.out.println("ps Á¾·á");
+			System.out.println("ps ï¿½ï¿½ï¿½ï¿½");
 		}
 		try {
 			if(conn != null)
@@ -44,7 +46,7 @@ public class DBUtill {
 			// TODO: handle exception
 		}
 		finally {
-			System.out.println("conn Á¾·á");
+			System.out.println("conn ï¿½ï¿½ï¿½ï¿½");
 		}
 	}
 	public static void destroy(Connection conn, PreparedStatement ps, ResultSet rs) {		
@@ -56,7 +58,7 @@ public class DBUtill {
 			// TODO: handle exception
 		}
 		finally {
-			System.out.println("rs Á¾·á");
+			System.out.println("rs ï¿½ï¿½ï¿½ï¿½");
 		}
 
 		destroy(conn, ps);

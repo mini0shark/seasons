@@ -1,4 +1,4 @@
-package kr.ac.skuniv.bank.web;
+package kr.ac.skuniv.bank.web.client;
 
 import java.io.IOException;
 
@@ -10,17 +10,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class ProcessWithDrawServlet
+ * Servlet implementation class CreateAccount
  */
-@WebServlet("/ProcessWithDrawServlet")
-public class ProcessWithDrawServlet extends HttpServlet {
+@WebServlet("/CreateClientServlet")
+public class CreateClientServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	@Override
 	protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		RequestDispatcher rd = req.getRequestDispatcher("");
+		// TODO Auto-generated method stub
+		RequestDispatcher rd = req.getRequestDispatcher("WEB-INF/user/createClient.jsp");
 		rd.forward(req, resp);
 	}
-       
-
 }
