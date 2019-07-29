@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN"
+    "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="Todo" >
+
+   <typeAlias alias="todo" type="kr.ac.skuniv.mybatisExam.dto.Todo"/> <!-- 패키지 이름을 매번 다 쓸 수 없으니  지정해 두는 곳-->
+    <!-- owner ormapping -->
+	<!--  resultMap사용법 -->
+	
+	<select id="todoList" resultClass = "todo">
+		select id, todo, done from todo
+	</select>
+	<!-- resultClass => 쓸곳  select사이에 사용할 쿼리를 쓰면 된다. -->
+
+	<select id="getTodo" parameterClass = "java.lang.Integer" resultClass ="todo">	<!-- resultClass 결과값을 담아줄 class -->
+		select id, todo, done from todo where id = #id#
+	</select>
+
+</sqlMap>

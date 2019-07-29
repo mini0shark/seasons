@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:jee="http://www.springframework.org/schema/jee"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+	http://www.springframework.org/schema/beans/spring-beans-3.0.xsd 
+	http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd 
+	http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee-3.0.xsd 
+	http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.0.xsd 
+	http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.0.xsd">
+	 <!-- You must configure either the server or JDBC driver (via the serverTimezone 
+		configuration property) to use a more specifc time zone value if you want 
+		to utilize time zone support. 와 같은 오류가 발생할 경우 serverTimezone을 JDBC드라이버에서 
+		설정해야한다. -->
+	<bean id="dataSource"
+		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="driverClassName">
+			<value>com.mysql.jdbc.Driver</value>
+		</property>
+		<property name="url"><value>jdbc:mysql://localhost:3306/skudb</value></property>
+		<property name="username">
+			<value>sku</value>
+		</property>
+		<property name="password">
+			<value>sku</value>
+		</property>
+	</bean>
+	<bean id="transactionManager"
+		class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+		<property name="dataSource">
+			<ref local="dataSource" />
+		</property>
+	</bean>
+	<bean id="sqlMapClient"
+		class="org.springframework.orm.ibatis.SqlMapClientFactoryBean">
+		<property name="configLocation">
+			<value>sample/sqlMapConfig.xml</value>
+		</property>
+		<property name="dataSource" ref="dataSource" />
+		<property name="mappingLocations">
+			<list>
+				<value>sample/Todo.xml</value>
+			</list>
+		</property>
+	</bean>
+	<bean class="org.springframework.orm.ibatis.SqlMapClientTemplate">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	<context:component-scan base-package="kr.ac.skuniv" />
+	<!--  bean에대한 등록 --> 
+</beans>
