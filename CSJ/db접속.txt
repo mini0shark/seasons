@@ -1,0 +1,60 @@
+https://urstory.github.io/2019/05/26/install-mysql-806/
+
+-----------------------DB,사용자 생성및 권한부여 8이하 버전---------------
+create database skudb;
+
+grant all privileges on skudb.* to sku@'%' identified by 'sku';
+grant all privileges on skudb.* to sku@'localhost' identified by 'sku';
+
+flush privileges;
+-----------------------DB,사용자 생성및 권한부여 8이하 버전---------------
+
+
+-----------------------DB,사용자 생성및 권한부여 8이상버전---------------
+mysql8 
+데이터베이스 추가
+CREATE DATABASE skudb;
+
+CREATE USER 'sku'@'localhost' IDENTIFIED BY 'sku';
+
+GRANT ALL PRIVILEGES on skudb.* TO 'sku'@'localhost';
+FLUSH PRIVILEGES;
+
+-----------------------DB,사용자 생성및 권한부여 8이상버전---------------
+
+
+
+ALTER DATABASE skudb CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci;
+
+
+use skudb;
+
+create table test(
+id int(10) primary key,
+name char(20) not null,
+email varchar(50) not null
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+create table member(
+id varchar(10) primary key,
+name varchar(20) not null,
+password varchar(10) not null,
+email varchar(50)
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+
+ALTER TABLE test MODIFY COLUMN name VARCHAR(255)  CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL
+
+
+create table todo(
+id INTEGER auto_increment primary key,
+todo VARCHAR(250) not null,
+ done boolean);
+
+alter table todo
+ modify column done boolean default false;
+
+grant all privileges on *.* to 'sku'@'localhost' with grant option;
+
