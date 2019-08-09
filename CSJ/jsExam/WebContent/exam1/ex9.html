@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>콜백 함수</title>
+</head>
+<body>
+	<div>test</div>
+
+	<script type="text/javascript">
+		function callTenTimes(f) {
+			for(let i =0; i<10; i++){
+				//매개변수로 전달된 함수.
+				f();
+			}
+		}
+	
+		var callback = function () {
+			console.log('콜백함수 호출');
+		};
+		
+		function hello() {
+			console.log("hello");
+		}
+		
+		callTenTimes(callback);
+		callTenTimes(hello);
+		
+		
+		callTenTimes(function(){
+			console.log('함수호출');
+		});
+		
+	</script>
+
+</body>
+</html>

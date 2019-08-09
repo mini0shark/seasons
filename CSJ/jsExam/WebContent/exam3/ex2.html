@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>ajax2</title>
+</head>
+<body>
+<button>변경</button>
+<p>안녕하세요.</p>
+
+<script type="text/javascript">
+	const btn = document.querySelector('button');
+	btn.addEventListener('click', ajaxTest);
+	
+	const request = new XMLHttpRequest();
+	function ajaxTest() {
+		request.addEventListener('load', execute);
+		request.open('get','sample.txt');
+		request.send();		
+	}
+	
+	function execute() {
+		alert('hahah');
+		alert(this.responseText);
+		document.querySelector('p').innerHTML=this.responseText;
+	}
+
+</script>
+</body>
+</html>

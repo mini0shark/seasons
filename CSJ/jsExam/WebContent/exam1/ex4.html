@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>조건문</title>
+</head>
+<body>
+<div>test</div>
+<script type="text/javascript">
+	const input = Number(prompt('숫자를 입력하세요.','숫자'));
+	console.log(input);
+	
+	if(input % 2 == 0){
+		alert("짝수입니다.");
+	}
+	else alert("홀수입니다.");
+	
+	switch(input % 2){
+	case 0:
+		alert("짝수");
+		break;
+	case 1:
+		alert("홀수");
+		break;
+	default:
+		break;
+	}
+</script>
+</body>
+</html>

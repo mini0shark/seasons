@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h1 id="header-1" class='b'>javaScript1</h1>
+	<h1 id="header-2" >javaScript2</h1>
+	<h1 class='b'>javaScript3</h1>
+<script type="text/javascript">
+	const header = document.getElementById('header-1');
+	header.style.border='2px solid black';
+	header.style.color='orange';
+	header.style.fontFamily='helvetica';
+	
+//	header.style['background-color']='gray';
+	
+	header.style['backgroundColor']='gray';
+	
+	const header2 = document.getElementById('header-2');
+	document.body.removeChild(header2);
+</script>
+</body>
+</html>

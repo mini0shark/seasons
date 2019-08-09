@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>ajax3</title>
+</head>
+<body>
+<script type="text/javascript">
+	const req = new XMLHttpRequest();
+	req.open('get','sample.txt');
+	req.onreadystatechange = function (event) {
+		console.log("onreadystatechange"+req.readyState); //readystate 상태값 가짐.(1234)
+	}
+	
+	if(req.readyState === 4){ //ajax가 완료된 상태
+		if(req.status === 200){ //HTTP의 응답상태코드
+				console.log("성공");
+		}
+	}
+	
+	req.send();
+</script>
+</body>
+</html>

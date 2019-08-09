@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<div id='btn'>클릭</div>
+<script type="text/javascript">
+	const btn = document.getElementById('btn');
+	
+	function whenClick() {
+		alert(this);
+		
+		this.style.color='red';
+		this.style.backgroundColor='blue';
+		
+		
+	}
+	btn.onclick = whenClick;
+</script>
+</body>
+</html>

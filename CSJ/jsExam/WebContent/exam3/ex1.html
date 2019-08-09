@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>ajax</title>
+</head>
+<body>
+<script type="text/javascript">
+	const request = new XMLHttpRequest(); //요청가능한 요청객체 얻어줌.
+	request.addEventListener("load", req); //로딩되면 req를 수행해라는 eventlistener를 객체에게 달아줌.
+	request.open("get", "sample.txt");//get방식으로 sample.txt 불러와라
+	request.send(); //응답올때까지 기다리다가 수행
+	
+	function req(){
+		alert("hi");
+		alert(this.responseText); //응답의 결과값 꺼내와 console에 찍음.
+		console.log(this.responseText); //responseText 안에 응답의 결과가 들었음.
+		
+	}
+</script>
+</body>
+</html>

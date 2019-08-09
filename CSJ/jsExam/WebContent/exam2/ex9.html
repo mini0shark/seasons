@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<div id='btn'>클릭</div>
+<script type="text/javascript">
+	const btn = document.getElementById('btn');
+	
+	//이벤트 연결
+	/* btn.onclick = function () {
+		alert('click!!!');
+	} */
+	function whenClick() {
+		alert('click!!!');
+		
+		//이벤트 제거
+		btn.onclick = null;
+	}
+	btn.onclick = whenClick;
+</script>
+</body>
+</html>

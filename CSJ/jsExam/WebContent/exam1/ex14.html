@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>object</title>
+</head>
+<body>
+	<div>test</div>
+
+	<script type="text/javascript">
+		const person = {
+			name : 'kang',
+			age : 20,
+			getName:function(){				
+				return this.name;
+			}
+		};
+		
+		console.log(person);
+		console.log(person.name);
+		const name = person.getName();
+		console.log(name);
+		
+		const person2 = new Object();
+		person2.name='kang';
+		person2.age = 20;
+		person2.getName=function(){
+			return this.name;
+		}
+		
+		console.log(person2);
+		console.log(person2.name);
+		console.log(person2.getName());
+		
+		const person3 = {};
+		person3.name = 'kang';
+		person3.age = 20;
+		person3.getName=function(){
+			return this.name;
+		}
+		console.log(person3);
+		console.log(person3.name);
+		console.log(person3.getName());
+		
+		console.log(person3['name']);
+	</script>
+
+</body>
+</html>

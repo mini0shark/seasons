@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>이벤트 캡쳐링</title>
+</head>
+<body>
+	<div class='one'>1
+		<div class='two'>2
+			<div class='three'>3</div>
+		</div>
+	</div>
+<script type="text/javascript">
+	const divs = document.querySelectorAll('div');
+	divs.forEach(function(div){
+		div.addEventListener('click',logEvent,{
+			capture:true //default 값은 false 
+		});
+	});
+	
+	function logEvent(event) {
+		event.stopPropagation(); //이벤트 전파를 막아줌!!
+		console.log(event.currentTarget.className)
+	}
+</script>
+</body>
+</html>

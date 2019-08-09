@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>setInterval</title>
+</head>
+<body>
+	<div>test</div>
+
+	<script type="text/javascript">
+		const intervalId = setInterval(function() {
+			alert('1초 마다 실행해줘~~!!')
+		}, 1000);
+		
+		setTimeout(function () {
+			clearInterval(intervalId);
+		},10000);
+	</script>
+
+</body>
+</html>

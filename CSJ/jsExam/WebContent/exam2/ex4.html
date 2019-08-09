@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h1 id="header-1" class='b'>javaScript</h1>
+	<h1 id="header-2" >javaScript</h1>
+	<h1 class='b'>javaScript</h1>
+<script type="text/javascript">
+	const header1 = document.getElementById('header-1');
+	const header2 = document.getElementsByTagName('h1');
+	const header3 = document.getElementsByClassName('b');
+	const header4 = document.querySelector('h1#header-2');
+	
+	const header5 = document.querySelectorAll('h1');
+	
+	header1.innerHTML = 'with getElementById()';
+	header2[1].innerHTML = 'with getElementsByTagName()';
+	header3[1].innerHTML = 'with getElementsByClassName()';
+	header4.innerHTML = 'with querySelector()';
+	
+	header5[2].innerHTML = 'with querySelectorAll()';
+</script>
+</body>
+</html>

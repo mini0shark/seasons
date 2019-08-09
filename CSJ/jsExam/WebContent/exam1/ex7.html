@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>함수</title>
+</head>
+<body>
+	<div>test</div>
+
+	<script type="text/javascript">
+		//선언적 함수
+		test();
+		
+		function test() {
+			console.log("선언적 함수 ");
+		}
+		
+		function test() {
+			console.log("선언적 함수 222 ");
+		}
+		console.log(test);
+
+		test();
+
+//		f();
+		//익명함수
+		var f = function() {
+			console.log("익명함수 ");
+		}
+		
+		var f = function() {
+			console.log("익명함수 222");
+		}
+		
+		f="test";
+
+		console.log(f);
+
+		//f();
+	</script>
+
+</body>
+</html>

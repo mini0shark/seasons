@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>호이스팅</title>
+</head>
+<body>
+<div>test</div>
+<script type="text/javascript">
+	//console.leg(ho);
+	
+	//var ho;  //호이스팅 o
+
+	//let ho; //호이스팅 X
+	
+	foo();
+	
+	function foo(){
+		console.log('bar');
+	} //얘는 foo()가 앞에 있어도 bar 출력 가능
+	
+	var foo = function(){
+		console.log('bar');
+	} //얘는 foo()가 얘 뒤에 나와야 값이 나옴
+</script>
+</body>
+</html>

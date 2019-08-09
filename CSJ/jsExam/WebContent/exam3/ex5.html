@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<button>변경</button>
+<p>안녕하세요^^</p>
+
+<script type="text/javascript">
+	const btn = document.querySelector('button');
+	const req = new XMLHttpRequest();
+	
+	btn.addEventListener('click',ajaxTest);
+	function ajaxTest() {
+		req.addEventListener('load',execute);
+		req.open('get','http://localhost/todospring/users/1');
+		req.send();
+	}
+	
+	function execute() {
+		alert(this.responseText);
+		const user = JSON.parse(this.responseText);
+		alert(user.id);
+		alert(user.name);
+	}
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+	<button id='btn'>The time is?</button>
+
+	<p id="demo"></p>
+	<script>
+		const btn = document.getElementById('btn');
+		btn.onclick=test;
+		function test() {
+			document.getElementById('demo').innerHTML = Date();
+		}
+	</script>
+
+</body>
+</html>

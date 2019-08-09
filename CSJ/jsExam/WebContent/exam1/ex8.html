@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>함수</title>
+</head>
+<body>
+	<div>test</div>
+
+	<script type="text/javascript">
+		function square(number) {
+			return number * number;
+		}
+		
+		console.log(square(5));
+		
+		console.log(square(5,10));
+		console.log(square());
+		
+		function sumAll() {
+			console.log(typeof (arguments)+':'+arguments.length);
+			let sum = 0;
+			for(let i in arguments){
+				sum += arguments[i];
+			}
+			return sum;
+		}
+		
+		console.log(sumAll());
+		console.log(sumAll(1,2,3,4,5));
+		console.log(sumAll(1,5));
+		
+	</script>
+
+</body>
+</html>

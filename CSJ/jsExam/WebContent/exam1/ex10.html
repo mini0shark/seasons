@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>콜백 함수</title>
+</head>
+<body>
+	<div>test</div>
+
+	<script type="text/javascript">
+		function returnfunction() {
+			return function () {
+				alert('hello returnfunction~~!!');
+			}
+		}
+		returnfunction()();
+		
+		const f = returnfunction();
+		f();
+	</script>
+
+</body>
+</html>

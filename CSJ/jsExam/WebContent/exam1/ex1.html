@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<div>test</div>
+<script type="text/javascript">
+	 var varTest = "varTest1";
+	 var varTest = "varTest2";
+	 
+	 console.log(varTest);
+	 console.log(varTest2);
+	 
+	 let letTest = "letTest1";
+//	 let letTest = "letTest2"; //두개 선언 불가
+	 
+	 console.log(letTest);
+	 var varTest2 = "test";
+	 
+	 const constTest = "constTest";
+	 
+	 console.log(constTest);
+	 //constTest = "constTest2";
+	 //var scope
+	 
+	 var foo = "bar1";
+	 console.log(foo);
+	 
+	 if(true){
+		 var foo = "bar2";
+		 console.log(foo);
+	 }
+	 console.log(foo);
+
+	 
+	 //let으로 바꿨을때 - 변수의 scope이 달라짐.
+	 let fo = "bar1";
+	 console.log(fo);
+	 
+	 if(true){
+		 let fo = "bar2";
+		 console.log(fo);
+	 }
+	 console.log(fo);	 
+	 
+</script>
+</body>
+</html>
