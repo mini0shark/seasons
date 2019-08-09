@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<!-- <bean id="tv" class="tv.STV"/> -->
+	<bean id="dice" class="kr.ac.skuniv.game.Dice">
+		<constructor-arg value="6"/>
+	</bean>
+
+	<bean id="kang" class="kr.ac.skuniv.game.Player">
+		<property name="name" value="차수진"/>
+		<property name="dice" ref="dice"/>
+	</bean>
+	
+	<bean id="hong" class="kr.ac.skuniv.game.Player">
+		<property name="name" value="홍길동"/>
+		<property name="dice" ref="dice"/>
+	</bean>
+	
+	<bean id="game" class="kr.ac.skuniv.game.Game">
+		<property name="list">
+			<list>
+				<ref bean="kang"/>
+				<ref bean="hong"/>
+			</list>
+		</property>
+	</bean>
+	
+	
+</beans>
